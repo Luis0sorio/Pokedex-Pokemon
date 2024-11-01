@@ -1,62 +1,233 @@
 @font-face {
-    font-family: 'PokemonGB';
-    src: url(../fonts/PokemonGb-RAeo.ttf) format('truetype');;
-  }
+  font-family: "PokemonGB";
+  src: url(../fonts/PokemonGb-RAeo.ttf) format("truetype");
+}
 
 header {
-    text-align: center;
-    margin: 0 auto;
-    padding: 25px;
-    width: 60%;
-    background-color: white;
-    border-radius: 25px;
-  }
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px;
+  width: 60%;
+  background-color: rgb(239, 239, 239);
+  border-radius: 25px;
+}
+h1 {
+  text-shadow: #7AC74C;
+}
 
-  .buscador-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* ETIQUETA HEADER: BUSCADOR DE POKEMON */
+.buscador-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .search-container {
-    display: flex;
-    align-items: center;
-  }
+.search-container {
+  display: flex;
+  align-items: center;
+}
 
-  #search {
-    width: 250px; 
-    padding: 8px 12px;
-    font-size: 15px;
-    border: 1px solid;
-    border-radius: 0px 20px 0 20px;
-    background-color: #f0f0f0;
-    box-shadow: 3px 3px 3px;
-  }
-  
-  #lupa-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px; 
-    height: 45px; 
-    margin-left: 10px;
-    background-color: rgb(18, 222, 18);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  #lupa-button:hover {
-    background-color: #e0a353;
-  }
-  
-  .lupa-icon {
-    width: 24px; 
-    height: 24px; 
-  }
+#search {
+  width: 250px;
+  padding: 8px 12px;
+  font-size: 15px;
+  border: 1px solid;
+  border-radius: 0px 20px 0 20px;
+  background-color: #f0f0f0;
+  box-shadow: 3px 3px 3px;
+}
 
-  label {
-    margin-top: 10px;
-    font-size: 18px;
-  }
+#lupa-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: rgb(18, 222, 18);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 0;
+}
+
+#lupa-button:hover {
+  background-color: #e0a353;
+}
+
+.lupa-icon {
+  width: 24px;
+  height: 24px;
+}
+
+label {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* ETIQUETA NAV: FILTRO DE POKEMON */
+
+.filtro-tipos {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+}
+
+.lista-tipos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.tipos button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: #000000;
+  flex: 1 1 calc(20% - 10px); /* Ajuste para 5 botones por fila */
+  max-width: 120px; /* Tamaño máximo de los botones */
+}
+
+/*
+.tipos button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+*/
+
+.Todos {
+  background-color: #00f335; color: #000000;
+}
+.Acero {
+  background-color: #B8B8D0;}
+.Agua { 
+  background-color: #6890F0; color: white;
+}
+.Bicho {
+  background-color: #A8B820; color: white;
+}
+.Dragon {
+  background-color: #7038F8; color: white;
+}
+.Electrico {
+  background-color: #F8D030;
+}
+.Fantasma {
+  background-color: #705898; color: white;
+}
+.Fuego {
+  background-color: #F08030;
+}
+.Hada {
+  background-color: #EE99AC;
+}
+.Hielo {
+  background-color: #98D8D8;
+}
+.Lucha {
+  background-color: #C03028; color: white;
+}
+.Normal {
+  background-color: #A8A878; color:black;
+}
+.Planta {
+  background-color: #78C850;
+}
+.Psiquico {
+  background-color: #F85888;
+}
+.Roca {
+  background-color: #B8A038;
+}
+.Siniestro {
+  background-color: #705848; color: white;
+}
+.Tierra {
+  background-color: #E0C068;
+}
+.Veneno {
+  background-color: #A040A0; color: white;
+}
+.Volador {
+  background-color: #A890F0;
+}
+
+.filtro-habitat {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+}
+
+.lista-habitats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.habitats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.habitats button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: #000000;
+  flex: 1 1 calc(20% - 10px); /* Ajuste para 5 botones por fila */
+  max-width: 120px; /* Tamaño máximo de los botones */
+}
+
+.Pradera {
+  background-color: #80cc91;
+}
+.Montañas{
+  background-color: #be9f05a1;
+}
+.AguaDulce {
+  background-color: #38caef;
+}
+.Bosque {
+  background-color: #03741c;
+  color: white;
+}
+.Montaña{
+  background-color: #42454a;
+  color: white;
+}
+.Cueva {
+  background-color: #ddb803f9;
+}
+.Urbano{
+  background-color: #7b7b7b;
+  color: white;
+}

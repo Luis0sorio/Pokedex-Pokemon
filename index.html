@@ -9,19 +9,71 @@
 <body>
   <header id="header">
   <h1>POKÉDEX KANTO</h1>
-  <nav></nav>
+    <div class="buscador-container">
+      <label for="search-desc">BUSCAR POKÉMON</label>
+      <div class="search-container">
+        <input type="text" placeholder="search" id="search">
+        <button type="button" id="lupa-button">
+          <img src="./src/img/icons/lupa.png" class="lupa-icon">
+        </button>
+      </div>
+    </div>
+    <nav>
+      <div class="filtro-tipos">
+        <span>FILTRAR POR TIPO</span>
+        <div class="lista-tipos">
+          <div class="tipos">
+            <button class="Todos">TODOS</button>
+            <button class="Acero">ACERO</button> 
+            <button class="Agua">AGUA</button> 
+            <button class="Bicho">BICHO</button> 
+            <button class="Dragon">DRAGÓN</button> 
+            <button class="Electrico">ELÉCTRICO</button> 
+            <button class="Fantasma">FANTASMA</button> 
+            <button class="Fuego">FUEGO</button> 
+            <button class="Hada">HADA</button> 
+            <button class="Hielo">HIELO</button> 
+            <button class="Lucha">LUCHA</button> 
+            <button class="Normal">NORMAL</button> 
+            <button class="Planta">PLANTA</button> 
+            <button class="Psiquico">PSÍQUICO</button> 
+            <button class="Roca">ROCA</button> 
+            <button class="Siniestro">SINIESTRO</button> 
+            <button class="Tierra">TIERRA</button> 
+            <button class="Veneno">VENENO</button> 
+            <button class="Volador">VOLADOR</button>
+          </div>
+        </div>
+      </div>
+      <div class="filtro-habitat">
+        <span>FILTRAR POR HÁBITAT</span>
+        <div class="lista-habitats">
+          <div class="habitats">
+            <button class="Pradera">Pradera</button>
+            <button class="Montañas">Montañas</button> 
+            <button class="AguaDulce">Agua dulce</button> 
+            <button class="Bosque">Bosque</button> 
+            <button class="Montaña">Montaña</button>
+            <button class="Cueva">Cueva</button> 
+            <button class="Urbano">Urbano</button>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
-  <main id="main"> </main>
+
+  <main id="main">
+
+  </main>
 
 
-<!-- 
     <footer>
      <div class="go-top">
       <button type="button" id="arriba">
         <span>Volver arriba</span>
       </button>
      </div>
-    </footer> -->
+    </footer>
 
     <script src="./src/js/pokemon.js"></script>
     <script src="./src/js/app.js"></script>
