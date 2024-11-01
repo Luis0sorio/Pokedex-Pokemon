@@ -3,18 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Pokemon</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Práctica 03. DOM</title>
+    <link rel="stylesheet" href="src/css/estilos.css">
 </head>
 <body>
     <header>
-        
+      <h1>POKÉDEX KANTO</h1>
+      <div class="buscador-container">
+        <div class="search-container">
+          <input type="text" placeholder="search" id="search">
+          <button type="button" id="lupa-button">
+            <img src="src/img/icons/lupa.png" class="lupa-icon">
+          </button>
+        </div>
+        <label for="search-desc">Usa el buscador para encontrar a tu POKÉMON favorito</label>
+      </div>
     </header>
-    <nav></nav>
+
+    <nav>
+
+    </nav>
+
     <main>
-        <form></form>
+      <section class="contenedor-cartas">
+        <div class="fila">
+          <div class="caja">BULBASAUR #001</div>
+          <div class="caja">IVYSAUR #002</div>
+          <div class="caja">VENOSAUR #003</div>
+        </div>
+        <div class="fila">
+          <div class="caja">CHARMANDER #004</div>
+          <div class="caja">CHARMELEON #005</div>
+          <div class="caja">CHARIZARD #006</div>
+        </div>
+        <div class="fila">
+          <div class="caja">SQUIRTLE #007</div>
+          <div class="caja">WARTORTLE #008</div>
+          <div class="caja">BLASTOISE #009</div>
+        </div>
+      </section>
     </main>
-    <aside></aside>
-    <footer></footer>
+
+    <aside>
+    </aside>
+
+    <footer>
+     <div class="go-top">
+      <button type="button" id="arriba">
+        <span>Volver arriba</span>
+      </button>
+     </div>
+    </footer>
+
 </body>
+<script src="js/pokemon.js"></script>
+<script src="js/app.js"></script>
 </html>
