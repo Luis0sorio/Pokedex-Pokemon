@@ -1,11 +1,11 @@
 
 @font-face {
   font-family: 'PokemonGB';
-  src: url(PokemonGb-RAeo.ttf) format('truetype');;
+  src: url(../fonts/PokemonGb-RAeo.ttf) format('truetype');;
 }
 
 body {
-  background-image: url("pattern-pokeball-background.jpg");
+  background-image: url("../img/icons/pattern-pokeball-background.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: 120px 120px;
