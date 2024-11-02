@@ -1,0 +1,33 @@
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .go-top {
+    text-align: center;
+  }
+
+  #arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(18, 222, 18);
+    color: #0b3002; 
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  #arriba:hover {
+    background-color: #0ed414;
+    transform: translateY(-5px);
+  }
+  
+  #arriba:active {
+    transform: translateY(2px);
+  }

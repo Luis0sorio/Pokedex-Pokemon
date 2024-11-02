@@ -48,3 +48,68 @@
         main.appendChild(contenedor); 
     }
     creacion_cartas(main,contenedor);
+
+
+    
+const header = document.getElementById('header');
+
+//creo el form en el html 
+const form = document.createElement('form');
+//pone en el form la id con un nombre search 
+form.setAttribute("id", "search");
+
+//creo un input donde se pondra la busqueada de los pokemons 
+const searchInput = document.createElement('input');
+searchInput.setAttribute("type","text");
+searchInput.setAttribute("id","searchInput");
+searchInput.setAttribute("placeholder","Buscar Pokemon por nombre ");
+
+//creo el boton de busqueda 
+const searchButton = document.createElement('button');
+searchButton.setAttribute("type","button");
+searchButton.setAttribute("id","searchButton");
+searchButton.textContent = 'Buscar Pokemon';
+
+//añado los input en el form 
+form.appendChild(searchInput);
+form.appendChild(searchButton);
+
+//añado el formulario al header 
+header.appendChild(form);
+
+
+//prueba impresion : 
+const resultContainer = document.createElement('div');
+resultContainer.setAttribute("id", "resultContainer");
+header.appendChild(resultContainer);
+//
+
+
+/**
+ * 
+ */
+function buscarPokemon (){
+    const pokemonBusqueda = searchInput.value.toLowerCase();
+    
+    //limpieza de busqueda : 
+    resultContainer.innerHTML = '';
+
+    for (const i in pokemon) {
+    const nombrePok = pokemon[i].nombre.toLowerCase();
+    if (nombrePok.includes(pokemonBusqueda)) {
+       
+        //prueba 
+       console.log(nombrePok); 
+
+            // Crear un elemento para mostrar el resultado en la página
+            const resultItem = document.createElement('p');
+            resultItem.textContent = pokemon[i].nombre; 
+            resultContainer.appendChild(resultItem);
+    }
+    }
+}
+
+//prueba
+searchButton.addEventListener('click', buscarPokemon);
+
+

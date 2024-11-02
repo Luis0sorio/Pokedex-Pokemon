@@ -1,0 +1,39 @@
+h1 {
+    font-size: 40px;
+  }
+
+body {
+    background-image: url("../img/icons/pattern-pokeball-background.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: 120px 120px;
+    font-family: 'PokemonGB', sans-serif;
+  }
+
+  
+main {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fila {
+    display: flex; 
+  }
+  
+  .card {
+    margin: 18px;
+    width: 325px;
+    height: 505px;
+    background-color: blue; 
+    color: white;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+  }

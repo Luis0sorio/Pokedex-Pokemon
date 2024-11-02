@@ -1,0 +1,16 @@
+/*
+Se usa para los enlaces de estilos y separarlos uno por uno 
+
+@import "";
+
+ej: @import "body.css";
+
+y aqui hariamos todo el contenido relacionado con el body, y luego lo hariamos 
+con los demas estilos  
+
+*/
+
+@import "header.css";
+@import "main.css";
+@import "aside.css";
+@import "footer.css";
