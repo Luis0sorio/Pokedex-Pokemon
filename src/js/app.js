@@ -23,7 +23,7 @@
             let div= document.createElement('div');
             div.className='card';
             div.id = id;//se asigna como id, el id del propio pokemon
-
+            div.setAttribute('data-nombre',nombre);
             //se rellenan
             let p1= document.createElement('p');
             p1.textContent=nombre;
@@ -50,7 +50,7 @@
     creacion_cartas(main,contenedor);
 
 
-    
+//busco la id del header en index.html   
 const header = document.getElementById('header');
 
 //creo el form en el html 
@@ -78,38 +78,63 @@ form.appendChild(searchButton);
 header.appendChild(form);
 
 
-//prueba impresion : 
-const resultContainer = document.createElement('div');
-resultContainer.setAttribute("id", "resultContainer");
-header.appendChild(resultContainer);
-//
+// //prueba impresion : 
+// const resultContainer = document.createElement('div');
+// resultContainer.setAttribute("id", "resultContainer");
+// header.appendChild(resultContainer);
+// //
 
 
 /**
  * 
  */
+// function buscarPokemon (){
+//     const pokemonBusqueda = searchInput.value.toLowerCase();
+    
+//     //limpieza de busqueda : 
+//     resultContainer.innerHTML = '';
+
+//     for (const i in pokemon) {
+//     const nombrePok = pokemon[i].nombre.toLowerCase();
+//     if (nombrePok.includes(pokemonBusqueda)) {
+       
+//         //prueba 
+//        console.log(nombrePok); 
+
+//             // Crear un elemento para mostrar el resultado en la página
+//             const resultItem = document.createElement('p');
+//             resultItem.textContent = pokemon[i].nombre; 
+//             resultContainer.appendChild(resultItem);
+//     }
+//     }
+// }
+
+// //prueba
+// searchButton.addEventListener('click', buscarPokemon);
+
+
 function buscarPokemon (){
     const pokemonBusqueda = searchInput.value.toLowerCase();
     
-    //limpieza de busqueda : 
-    resultContainer.innerHTML = '';
+    // //limpieza de busqueda : 
+    // resultContainer.innerHTML = '';
 
-    for (const i in pokemon) {
-    const nombrePok = pokemon[i].nombre.toLowerCase();
-    if (nombrePok.includes(pokemonBusqueda)) {
-       
-        //prueba 
-       console.log(nombrePok); 
+    const cartas = contenedor.getElementsByClassName('card');
 
-            // Crear un elemento para mostrar el resultado en la página
-            const resultItem = document.createElement('p');
-            resultItem.textContent = pokemon[i].nombre; 
-            resultContainer.appendChild(resultItem);
+    for (const carta of cartas) {
+    const nombrePok = carta.getAttribute('data-nombre').toLowerCase();
+    if (pokemonBusqueda === 0)
+        carta.style.display='none';
+    if (nombrePok === pokemonBusqueda || nombrePok.startsWith(pokemonBusqueda) 
+        || nombrePok.endsWith(pokemonBusqueda)
+        ||nombrePok.includes(pokemonBusqueda)) {
+       carta.style.display = '';
+        }else {
+        carta.style.display = 'none';
+        }
     }
-    }
+
 }
 
 //prueba
-searchButton.addEventListener('click', buscarPokemon);
-
-
+searchInput.addEventListener('input', buscarPokemon);
