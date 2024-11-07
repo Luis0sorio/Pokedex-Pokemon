@@ -2,7 +2,7 @@ h1 {
     font-size: 40px;
   }
 
-body {
+  body {
     background-image: url("../img/icons/pattern-pokeball-background.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
@@ -11,7 +11,7 @@ body {
   }
 
   
-main {
+  main {
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -20,11 +20,12 @@ main {
   .fila {
     display: flex; 
   }
-  
+
   .card {
     margin: 18px;
     width: 325px;
-    height: 505px;
+    height: 505px;/*o height: auto;*/
+    flex-direction: column;/*para q se ordenen loselementos en fila*/
     background-color: blue; 
     color: white;
     display: flex;
@@ -36,4 +37,5 @@ main {
   .contenedor {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;/*alinea cartas*/
   }

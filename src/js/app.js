@@ -1,15 +1,27 @@
+    let pokemons= Array.from(pokemon);//copia del objeto original(para modificarla y eso)
+    localStorage.setItem('pokemons',JSON.stringify(pokemons));//lo subimos
+    
     let main = document.getElementById('main');
     //creo elcontenedor
     let contenedor= document.createElement('div');
     contenedor.className='contenedor';
 
-    function creacion_cartas(main,contenedor) {
+    function CreacionCartas(main,contenedor) {
+        let pk=JSON.parse(localStorage.getItem('pokemons'));
         //recorro el objeto
-        for (let key in pokemon) {
+        for (let key in pk) {
             //la info que necesitamos
-            let id=pokemon[key].id;
-            let nombre=pokemon[key].nombre;
-            let tipo=pokemon[key].tipos;
+            let id=pk[key].id;
+            let nombre=pk[key].nombre;
+            let tipo=pk[key].tipos;
+
+            //imagen y su div
+            let div_img=document.createElement('div');
+            div_img.className='imagenes';
+
+            let img=document.createElement('img');
+            img.src="../Pokedex-Pokemon/src/img/pokemon/"+ id +".png";
+            div_img.appendChild(img);
 
             //creo un div para meter toda la info
             let div_info=document.createElement('div');
@@ -33,21 +45,23 @@
             p3.textContent=tipo;
 
             //añado la info  al div_info 
-            div_info.appendChild(p1);
             div_info.appendChild(p2);
+            div_info.appendChild(p1);
             div_info.appendChild(p3);
 
             //añado al div-carta el div de la info y tmb la papelera
+            div.appendChild(div_img);
             div.appendChild(div_info);
-            div.appendChild(papelera);
+            //div.appendChild(papelera);
             
             //añado al contenedor de cartas las cartas 
             contenedor.appendChild(div);
         }
         //añado todo al main
         main.appendChild(contenedor); 
+        
     }
-    creacion_cartas(main,contenedor);
+    CreacionCartas(main,contenedor);
 
 
 //busco la id del header en index.html   
@@ -58,7 +72,7 @@ const form = document.createElement('form');
 //pone en el form la id con un nombre search 
 form.setAttribute("id", "search");
 
-//creo un input donde se pondra la busqueada de los pokemons 
+//creo un input donde se pondra la busqueada de los pokemon 
 const searchInput = document.createElement('input');
 searchInput.setAttribute("type","text");
 searchInput.setAttribute("id","searchInput");
@@ -138,3 +152,6 @@ function buscarPokemon (){
 
 //prueba
 searchInput.addEventListener('input', buscarPokemon);
+//modificar..
+
+//hacer boton de añadir q te lleve al formulario de aniadir_pok
