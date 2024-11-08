@@ -22,5 +22,8 @@
 # Poner iconos con enlaces para que nos redirigan a algun sitio 
 
 <------------------------------------------------------------------------------------------------------------------------>
+<<<<<<< HEAD
 
-#aside 
+#aside a
+=======
+>>>>>>> 5069e72 (V.1.1 Cambios para estilos y correciones y buscador)

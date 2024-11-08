@@ -57,6 +57,26 @@ function CreacionCartas(main, contenedor) {
     div_info.appendChild(p1);
     div_info.appendChild(p3);
 
+            //añado al div-carta el div de la info y tmb la papelera
+            div.appendChild(div_img);
+            div.appendChild(div_info);
+            //div.appendChild(papelera);
+            
+            //añado al contenedor de cartas las cartas 
+            contenedor.appendChild(div);
+        }
+        //añado todo al main
+        main.appendChild(contenedor); 
+        
+    }
+    CreacionCartas(main,contenedor);
+
+
+
+
+// Creo el contenedor div donde se pondra todo lo de busqueda 
+const containerbuscador = document.createElement("div");
+containerbuscador.setAttribute("class", "buscador-container");
     //añado al div-carta el div de la info y tmb la papelera
     div.appendChild(div_img);
     div.appendChild(div_info);
@@ -70,17 +90,49 @@ function CreacionCartas(main, contenedor) {
 }
 CreacionCartas(main, contenedor);
 
+// creo el contenedor del div de input 
+const containersearch = document.createElement("div");
+containersearch.setAttribute("class", "search-container");
+
+header.setAttribute("id", "header");
 //creo el form en el html
 const form = document.createElement("form");
 //pone en el form la id con un nombre search
 form.setAttribute("id", "search");
 
+// creo el input donde se ingresaran los nombre de los pokemons 
+const searchInput = document.createElement("input");
+searchInput.setAttribute("type", "text");
+searchInput.setAttribute("id", "searchInput");
+searchInput.setAttribute("placeholder", "Buscar Pokémon por nombre");
 //creo un input donde se pondra la busqueada de los pokemon
 const searchInput = document.createElement("input");
 searchInput.setAttribute("type", "text");
 searchInput.setAttribute("id", "searchInput");
 searchInput.setAttribute("placeholder", "Buscar Pokemon por nombre ");
 
+// Creo el botón de búsqueda
+const searchButton = document.createElement("button");
+searchButton.setAttribute("type", "button");
+searchButton.setAttribute("id", "searchButton");
+
+// Creo la img y le añado los atributos que contienen la imagen y la clase 
+const lupaIcon = document.createElement("img");
+lupaIcon.setAttribute("src", "./src/img/icons/lupa.png");
+lupaIcon.setAttribute("class", "lupa-icon");
+
+// hago que sea hijo de del boton 
+searchButton.appendChild(lupaIcon);
+
+// Añado el input y el botón al contenedor
+containersearch.appendChild(searchInput);
+containersearch.appendChild(searchButton);
+
+// Añado el container-search al buscador-container
+containerbuscador.appendChild(containersearch);
+
+// hago containerbuscador donde se contiene todo como hijo del header 
+header.appendChild(containerbuscador);
 //creo el boton de busqueda
 const searchButton = document.createElement("button");
 searchButton.setAttribute("type", "button");
@@ -126,6 +178,10 @@ header.appendChild(form);
 
 // //prueba
 // searchButton.addEventListener('click', buscarPokemon);
+
+
+function buscarPokemon(searchInput) {
+    const pokemonBusqueda = searchInput.value.toLowerCase();
 
 /**
  * BOTONES DE FILTRO: TIPO Y HABITAT
@@ -238,6 +294,14 @@ function buscarPokemon() {
 
   const cartas = contenedor.getElementsByClassName("card");
 
+    for (const carta of cartas) {
+        const nombrePok = carta.getAttribute('data-nombre').toLowerCase();
+        if (nombrePok === pokemonBusqueda || nombrePok.includes(pokemonBusqueda)) {
+            carta.style.display = '';
+        } else {
+            carta.style.display = 'none';
+        }
+    }
   for (const carta of cartas) {
     const nombrePok = carta.getAttribute("data-nombre").toLowerCase();
     if (pokemonBusqueda === 0) carta.style.display = "none";
@@ -254,8 +318,27 @@ function buscarPokemon() {
   }
 }
 
+// Evento para escribir y buscar 
+searchInput.addEventListener('input', function() {
+    buscarPokemon(searchInput);
+});
+
+// Evento de clic en el botón para realizar la búsqueda
+searchButton.addEventListener('click', function() {
+    buscarPokemon(searchInput);
+});
+
+// Evento para detectar la tecla Enter 
+searchInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        buscarPokemon(searchInput);
+    }
+});
+
+
 //prueba
 searchInput.addEventListener("input", buscarPokemon);
 //modificar..
 
 //hacer boton de añadir q te lleve al formulario de aniadir_pok
+}
