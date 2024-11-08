@@ -3,7 +3,8 @@ h1 {
   }
 
   body {
-    background-image: url("../img/icons/pattern-pokeball-background.jpg");
+    /* background-image: url("../img/icons/pattern-pokeball-background.jpg"); */
+    background-color: antiquewhite;
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: 120px 120px;
@@ -23,8 +24,8 @@ h1 {
 
   .card {
     margin: 18px;
-    width: 325px;
-    height: 505px;/*o height: auto;*/
+    width: 225px;
+    height: 305px;/*o height: auto;*/
     flex-direction: column;/*para q se ordenen loselementos en fila*/
     background-color: blue; 
     color: white;
@@ -38,4 +39,16 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;/*alinea cartas*/
+  }
+
+  p {
+    font-size: 14px;
+  }
+  #info{
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .imagenes{
+    background-color: azure;
   }

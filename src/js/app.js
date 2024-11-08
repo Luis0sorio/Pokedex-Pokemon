@@ -14,13 +14,14 @@ function CreacionCartas(main,contenedor) {
         let id=pk[key].id;
         let nombre=pk[key].nombre;
         let tipo=pk[key].tipos;
+        let id2=id;
 
         //imagen y su div
         let div_img=document.createElement('div');
         div_img.className='imagenes';
 
         let img=document.createElement('img');
-        img.src="../Pokedex-Pokemon/src/img/pokemon/"+ id +".png";
+        img.src="./src/img/pokemon/"+ id2 +".png";
         div_img.appendChild(img);
 
         //creo un div para meter toda la info
@@ -30,6 +31,10 @@ function CreacionCartas(main,contenedor) {
         //creo la papelera
         let papelera=document.createElement('div');
         papelera.id='papelera';
+        let button=document.createElement('button');
+        button.type="submit";
+        button.textContent="borrar";
+        papelera.appendChild(button);
 
         //creo el card
         let div= document.createElement('div');
@@ -38,12 +43,13 @@ function CreacionCartas(main,contenedor) {
         div.setAttribute('data-nombre',nombre);
         //se rellenan
         let p1= document.createElement('p');
+        p1.setAttribute("id", "p1");
         p1.textContent=nombre;
         let p2= document.createElement('p');
         p2.textContent=id;
         let p3= document.createElement('p');
         p3.textContent=tipo;
-
+        
         //añado la info  al div_info 
         div_info.appendChild(p2);
         div_info.appendChild(p1);
@@ -52,7 +58,7 @@ function CreacionCartas(main,contenedor) {
         //añado al div-carta el div de la info y tmb la papelera
         div.appendChild(div_img);
         div.appendChild(div_info);
-        //div.appendChild(papelera);
+        div.appendChild(papelera);
         
         //añado al contenedor de cartas las cartas 
         contenedor.appendChild(div);
@@ -62,6 +68,12 @@ function CreacionCartas(main,contenedor) {
     
 }
 CreacionCartas(main,contenedor);
+let p = document.getElementById('papelera');
+function b() {
+  p.addEventListener("submit",function (event) { 
+    event.preventDefault(); 
+  )
+}
 
 
 
