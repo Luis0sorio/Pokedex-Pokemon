@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "PokemonGB";
+  src: url(../fonts/PokemonGb-RAeo.ttf) format("truetype");
+}
+
+container-tipos {
+  /* background-color: rgb(174, 174, 244); */
+  margin-block: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.h2-tipos{
+  color: white;
+  padding: 15px;
+  margin-block: 15px;
+  display: flex;
+}
+
+[class^="btn-tipo-"] {
+  font-family: 'PokemonGB', sans-serif;
+  display: grid;
+  margin: 10px; 
+  border-radius: 15px;
+  color: white;
+  font-size: 1em;
+  text-shadow: 1px 1px 2px black;
+  font-family: 'PokemonGB', sans-serif;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 2px;
+  border: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  flex: 1 1 calc(20% - 10px);
+  max-width: 155px;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+}
+
+.btn-tipo-acero{
+  background-color: #A1A9B5; 
+  background-image: url('/img/btn/acero.png');
+}
+.btn-tipo-agua{
+  background-color: #5A8FB9; 
+  background-image: url(../agua.png);
+}
+.btn-tipo-bicho{
+  background-color: #A4C92B;
+  background-image: url(../acero.png);
+}
+.btn-tipo-dragón{
+  background-color: #6A4DFF; 
+  background-image: url(../acero.png);
+}
+.btn-tipo-eléctrico{
+  background-color: #F7D02C; 
+  background-image: url(../acero.png);
+}
+.btn-tipo-fantasma{
+  background-color: #735797;
+  background-image: url(../acero.png);
+}
+.btn-tipo-fuego{
+  background-color: #EE8130;
+  background-image: url(../acero.png);
+}
+.btn-tipo-hada{
+  background-color: #D685AD;
+  background-image: url(../acero.png);
+}
+.btn-tipo-hielo{
+  background-color: #96D9D6;
+  background-image: url(../acero.png);
+}
+.btn-tipo-lucha{
+  background-color: #C22E28;
+  background-image: url(../acero.png);
+}
+.btn-tipo-normal{
+  background-color: #A8A77A;
+  background-image: url(../acero.png);
+}
+.btn-tipo-planta{
+  background-color: #7AC74C;
+  background-image: url(../acero.png);
+}
+.btn-tipo-psíquico{
+  background-color: #F95587;
+  background-image: url(../acero.png);
+}
+.btn-tipo-roca{
+  background-color: #B6A136;
+  background-image: url(../acero.png);
+}
+.btn-tipo-tierra{
+  background-color: #E2BF65;
+  background-image: url(../acero.png);
+}
+.btn-tipo-veneno{
+  background-color: #A33EA1;
+  background-image: url(../acero.png);
+}
+.btn-tipo-volador{
+  background: linear-gradient(145deg, #A588FF, #C3AFFF);
+  /* background-color: #A98FF3; */
+  background-image: url(../acero.png);
+}
+
+[class^="btn-tipo-"]:hover {
+  transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.container-habitats {
+  background-color: blue;
+  margin-block: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.h2-habitats{
+  color: white;
+  padding: 15px;
+  margin-block: 15px;
+  display: flex;
+}
+
+[class^="btn-hab-"] {
+  margin: 10px; 
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1em;
+  text-shadow: 1px 1px 2px black;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0px 2px #000000;
+  flex: 1 1 calc(20% - 10px); 
+  max-width: 130px; 
+  max-height: 100px;
+  background-size: cover; /* Ajusta la imagen para cubrir todo el área del botón */
+  background-position: center;
+}
+
+.btn-hab-agua_dulce{
+  background-image: url(img/btn/agua-dulce.jpg);
+
+}
+.btn-hab-bosque{
+  background-image: url(img/btn/bosque.avif);
+  color: white;
+
+}
+.btn-hab-cueva{
+  background-image: url(img/btn/cueva.jpg);
+  color: white;
+}
+.btn-hab-montaña{
+  background-image: url(img/btn/montaña.jpg);
+  background-size: 35px 35px; /* Ajusta la imagen para cubrir todo el área del botón */
+  background-position: center;
+}
+.btn-hab-pradera{
+  background-image: url(img/btn/pradera.jpg);
+
+}
+.btn-hab-urbano{
+  background-image: url(img/btn/urbano.jpg);
+
+}
+
+[class^="btn-hab-"]:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
