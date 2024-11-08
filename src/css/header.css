@@ -27,7 +27,7 @@ h1 {
   align-items: center;
 }
 
-#search {
+#searchInput {
   width: 250px;
   padding: 8px 12px;
   font-size: 15px;
@@ -37,7 +37,7 @@ h1 {
   box-shadow: 3px 3px 3px;
 }
 
-#lupa-button {
+#searchButton {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ h1 {
   padding: 0;
 }
 
-#lupa-button:hover {
+#searchButton:hover {
   background-color: #e0a353;
 }
 
