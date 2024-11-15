@@ -67,15 +67,49 @@ function CreacionCartas(main,contenedor) {
     main.appendChild(contenedor); 
     
 }
-CreacionCartas(main,contenedor);
+CreacionCartas(main,contenedor); 
 let p = document.getElementById('papelera');
 function b() {
   p.addEventListener("submit",function (event) { 
     event.preventDefault(); 
-  )
+    });
 }
 
-
+const nav = document.getElementsByTagName("nav");
+function crearBotonesTipos() {
+    let nav = document.querySelector("nav");
+    let divTipos = document.createElement("div");
+    let h2 = document.createElement("h2");
+    h2.textContent = "FILTRAR POR TIPOS: ";
+  
+    divTipos.classList.add("container-tipos");
+    h2.classList.add("h2-tipos");
+  
+    nav.appendChild(divTipos);
+    divTipos.appendChild(h2);
+  
+    let setTipos = new Set();
+    for (let i = 0; i < pokemon.length; i++) {
+      let tipos = pokemon[i].tipos;
+      for (let j = 0; j < tipos.length; j++) {
+        setTipos.add(tipos[j]);
+      }
+    }
+  
+    let arrayTipos = Array.from(setTipos).sort();
+  
+    for (let i = 0; i < arrayTipos.length; i++) {
+      let tipos = arrayTipos[i];
+  
+      let botonTipos = document.createElement("button");
+      botonTipos.textContent = tipos.toUpperCase();
+      botonTipos.classList.add("btn-tipo-" + tipos.toLowerCase());
+  
+      divTipos.appendChild(botonTipos);
+    }
+  }
+  crearBotonesTipos();
+  
 
 
 // Creo el contenedor div donde se pondra todo lo de busqueda 
@@ -152,3 +186,6 @@ if (event.key === 'Enter') {
     buscarPokemon(searchInput);
 }
 });
+
+// EVENTOS FILTRO DE TIPO Y HABITAT
+
