@@ -1,12 +1,16 @@
 h1 {
     font-size: 40px;
+    color: gold;
+    text-shadow: 3px 3px rgb(0, 60, 255);
   }
 
-   body {
-    background-image: url("../img/icons/pattern-pokeball-background.jpg");
+  body {
+    background-image: url("../img/icons/pattern-3.png");
+    /* background-color: rgb(131, 247, 251); */
     background-repeat: repeat;
     background-attachment: fixed;
-    background-size: 120px 120px;
+    /* background-size: 120px 120px; */
+    background-size: cover;
     font-family: 'PokemonGB', sans-serif;
   } 
 
@@ -20,24 +24,112 @@ h1 {
   .fila {
     display: flex; 
   }
-
+/*
   .card {
     margin: 18px;
-    width: 325px;
-    height: 505px;/*o height: auto;*/
-    flex-direction: column;/*para q se ordenen loselementos en fila*/
-    background-color: blue; 
-    color: white;
+    width: 225px;
+    height: 305px;
+    flex-direction: column;
+    background-image: url("../img/icons/bc-card-3.avif");
+    background-size: cover;
+    background-position: center;
+    color: black;
+    font-size: 10px;
+    font-weight: bolder;
     display: flex;
+    text-transform: uppercase;
     align-items: center; 
     justify-content: center; 
-    border-radius: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    position: relative;
+    background-image:
+    radial-gradient(circle at center, rgba(227, 231, 11, 0.8), rgba(7, 7, 7, 0)),
+    repeating-conic-gradient(from 4deg, rgba(223, 17, 17, 0.05), rgba(248, 215, 6, 0.05) 10deg, transparent 10deg, transparent 20deg);
+  }*/
+  .card {
+    margin: 18px;
+    width: 225px;
+    height: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-direction: column;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    background-image: url("../img/icons/bc-card-2.jpg");
+    background-repeat: no-repeat;
+    background-size: 335px;
+    background-position: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
   }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -100%) rotate(-20deg);
+    transform-origin: left bottom;
+    width: 120px;
+    text-align: center;
+  }
+  /*
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at center, black);
+    z-index: 1;
+  }*/
+  
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid yellow; /* Borde luminoso */
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
   .contenedor {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;/*alinea cartas*/
+    gap: 20px;
   }
 
-  
+  p {
+    font-size: 14px;
+  }
+  #info{
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .imagenes img{
+    height: 55px;
+    width: 55px;
+    
+  }

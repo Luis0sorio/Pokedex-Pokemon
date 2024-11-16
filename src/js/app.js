@@ -1,53 +1,63 @@
-    let pokemons= Array.from(pokemon);//copia del objeto original(para modificarla y eso)
-    localStorage.setItem('pokemons',JSON.stringify(pokemons));//lo subimos
-    
-    let main = document.getElementById('main');
-    //creo elcontenedor
-    let contenedor= document.createElement('div');
-    contenedor.className='contenedor';
+let pokemitos = Array.from(pokemon); //copia del objeto original(para modificarla y eso)
+localStorage.setItem("pokemitos", JSON.stringify(pokemitos)); //lo subimos
 
-    function CreacionCartas(main,contenedor) {
-        let pk=JSON.parse(localStorage.getItem('pokemons'));
-        //recorro el objeto
-        for (let key in pk) {
-            //la info que necesitamos
-            let id=pk[key].id;
-            let nombre=pk[key].nombre;
-            let tipo=pk[key].tipos;
+let main = document.querySelector("main");
+main.setAttribute("id", "main");
+//creo elcontenedor
+let contenedor = document.createElement("div");
+contenedor.className = "contenedor";
 
-            //imagen y su div
-            let div_img=document.createElement('div');
-            div_img.className='imagenes';
+function CreacionCartas(main, contenedor) {
+  let pk = JSON.parse(localStorage.getItem("pokemitos"));
+  //recorro el objeto
+  for (let key in pk) {
+    //la info que necesitamos
+    let id = pk[key].id;
+    let nombre = pk[key].nombre;
+    let tipo = pk[key].tipos;
+    let id2 = id;
 
-            let img=document.createElement('img');
-            img.src="../Pokedex-Pokemon/src/img/pokemon/"+ id +".png";
-            div_img.appendChild(img);
+    //imagen y su div
+    let div_img = document.createElement("div");
+    div_img.className = "imagenes";
 
-            //creo un div para meter toda la info
-            let div_info=document.createElement('div');
-            div_info.id='info';
+    let img = document.createElement("img");
+    img.src = "./src/img/pokemon/" + id2 + ".png";
+    div_img.appendChild(img);
 
-            //creo la papelera
-            let papelera=document.createElement('div');
-            papelera.id='papelera';
+    //creo un div para meter toda la info
+    let div_info = document.createElement("div");
+    div_info.id = "info";
 
-            //creo el card
-            let div= document.createElement('div');
-            div.className='card';
-            div.id = id;//se asigna como id, el id del propio pokemon
-            div.setAttribute('data-nombre',nombre);
-            //se rellenan
-            let p1= document.createElement('p');
-            p1.textContent=nombre;
-            let p2= document.createElement('p');
-            p2.textContent=id;
-            let p3= document.createElement('p');
-            p3.textContent=tipo;
+    //creo la papelera
+    let papelera = document.createElement("div");
+    papelera.id = "papelera";
+    let button = document.createElement("button");
+    button.type = "submit";
+    button.textContent = "borrar";
+    papelera.appendChild(button);
 
-            //añado la info  al div_info 
-            div_info.appendChild(p2);
-            div_info.appendChild(p1);
-            div_info.appendChild(p3);
+    //creo el card
+    let div = document.createElement("div");
+    div.className = "card";
+    div.id = id; //se asigna como id, el id del propio pokemon
+    div.setAttribute("data-nombre", nombre);
+
+    //se rellenan
+    let div_nombre = document.createElement("div");
+    div_nombre.setAttribute("id", "nombre");
+    div_nombre.textContent = nombre;
+    let div_numero = document.createElement("div");
+    div_numero.setAttribute("id", "numero");
+    div_numero.textContent = id;
+    let div_tipo = document.createElement("div");
+    div_tipo.setAttribute("id", "tipo");
+    div_tipo.textContent = tipo;
+
+    //añado la info  al div_info
+    div_info.appendChild(div_numero);
+    div_info.appendChild(div_nombre);
+    div_info.appendChild(div_tipo);
 
             //añado al div-carta el div de la info y tmb la papelera
             div.appendChild(div_img);
@@ -81,7 +91,7 @@ function crearHeader (){
     tituloSearch.setAttribute("for","searchInput");
     tituloSearch.textContent = "BUSCAR POKÉMON";
 
-    // Creo el contenedor div donde se pondra todo lo de busqueda 
+    // Creo el contenedor div donde se pondra todo lo de busqueda
     const containerbuscador = document.createElement("div");
     containerbuscador.setAttribute("class", "buscador-container");
 
@@ -100,7 +110,7 @@ function crearHeader (){
     searchButton.setAttribute("type", "button");
     searchButton.setAttribute("id", "searchButton");
 
-    // Creo la img y le añado los atributos que contienen la imagen y la clase 
+    // Creo la img y le añado los atributos que contienen la imagen y la clase
     const lupaIcon = document.createElement("img");
     lupaIcon.setAttribute("src", "./src/img/icons/lupa.png");
     lupaIcon.setAttribute("class", "lupa-icon");
