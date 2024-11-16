@@ -2,13 +2,13 @@ h1 {
     font-size: 40px;
   }
 
-  body {
+   body {
     background-image: url("../img/icons/pattern-pokeball-background.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: 120px 120px;
     font-family: 'PokemonGB', sans-serif;
-  }
+  } 
 
   
   main {
@@ -39,3 +39,5 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;/*alinea cartas*/
   }
+
+  
