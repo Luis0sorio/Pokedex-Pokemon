@@ -1,6 +1,9 @@
-  let pokemons= Array.from(pokemon);//copia del objeto original(para modificarla y eso)
-  localStorage.setItem('pokemons',JSON.stringify(pokemons));//lo subimos
-
+  //copia del objeto original(para modificarla y eso)
+  let pokemons= Array.from(pokemon);
+  let objetoPokemons=localStorage.getItem('pokemons');
+  if (objetoPokemons==null) {
+    localStorage.setItem('pokemons',JSON.stringify(pokemons));//lo subimos
+  }
   let main = document.querySelector('main');
   main.setAttribute("id","main");
   //creo elcontenedor
@@ -146,6 +149,15 @@
   const containersearch = document.createElement("div");
   containersearch.setAttribute("class", "search-container");
 
+  //boton para añadir pokemons
+  let divBtonAniadir=document.createElement("div");//div para el boton
+  divBtonAniadir.id="div-bton";
+  let addInput = document.createElement("input");//boton
+  addInput.type="submit";
+  addInput.name="botonAniadir";
+  addInput.value="Añadir Pokemon";
+  divBtonAniadir.appendChild(addInput);
+
   // busco el header y le añado una id header 
   const header = document.querySelector("header");
   header.setAttribute("id", "header");
@@ -172,6 +184,7 @@
   // Añado el input y el botón al contenedor
   containersearch.appendChild(searchInput);
   containersearch.appendChild(searchButton);
+  containersearch.appendChild(divBtonAniadir);//añado el div q contiene el boton al contenedor
 
   // Añado el container-search al buscador-container
   containerbuscador.appendChild(containersearch);
@@ -212,6 +225,9 @@
       buscarPokemon(searchInput);
   }
   });
-
+  //evento del boton para añdir un pokemon
+  addInput.addEventListener('click', function() {
+    window.open("src/js/formularioP.html", "_blank");//se abre otra pagina cn el fomrulario
+  });
   // EVENTOS FILTRO DE TIPO Y HABITAT
 
