@@ -52,40 +52,48 @@ h1 {
     margin: 18px;
     width: 225px;
     height: 225px;
-    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    flex-direction: column;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
-
-    /* background: radial-gradient(circle at center, grey, rgba(243, 3, 3, 0)), repeating-conic-gradient(from 0deg, red, rgba(255, 255, 255, 0.1) 10deg, transparent 10deg, transparent 20deg);
-    color: rgb(28, 3, 3); /* Mejor contraste */
-    background-image: url("../img/icons/bc-card-3.avif");
-    background-size: cover;
+    background-image: url("../img/icons/bc-card-2.jpg");
+    background-repeat: no-repeat;
+    background-size: 335px;
     background-position: center;
     color: white;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    background-size: cover;
-    background-position: center;
-}
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -100%) rotate(-20deg);
+    transform-origin: left bottom;
+    width: 120px;
+    text-align: center;
+  }
+  /*
   .card::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 90%; /* Ajustar al tamaño del borde */
+    width: 90%;
     height: 90%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background: radial-gradient(circle at center, black);
     z-index: 1;
-  }
+  }*/
   
   .card::after {
     content: '';
@@ -120,8 +128,8 @@ h1 {
     font-size: 12px;
   }
 
-  .imagenes {
- /* La imagen se ajusta al 100% de la altura del contenedor */
-    /* Cubre todo el área del contenedor, cortando la imagen si es necesario */
+  .imagenes img{
+    height: 55px;
+    width: 55px;
     
   }
