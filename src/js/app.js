@@ -66,7 +66,7 @@
       //añado al div-carta el div de la info y tmb la papelera
       div.appendChild(div_img);
       div.appendChild(div_info);
-      //div.appendChild(papelera);
+      div.appendChild(papelera);
 
       //añado al contenedor de cartas las cartas
       contenedor.appendChild(div);
@@ -116,13 +116,13 @@
 
     //para poder ordenar lso tiposy mantener el ordem, convertimos el Set a array
     let arrayTipos = Array.from(setTipos).sort();
-    //creamos un boton 'TODOS' cuya funcions erá filtrar y mostrar todas las cartas.
+    //creamos un boton 'TODOS' cuya funcion será filtrar y mostrar todas las cartas.
     let todos = document.createElement("button");
-    todos.textContent = "TODOS";
+    todos.textContent = "_____________"; // este es el botón 'TODOS', editado para una mejor visualización con CSS
     todos.setAttribute("id", "todos");
     todos.classList.add("btn-tipo");
     todos.addEventListener("click", function () {
-      mostrarTodos(); // evento que mustra todas las cartas
+      mostrarTodos(); // evento que muestra todas las cartas
     });
     divTipos.appendChild(todos); // le asignamos su nodo padre.
 
@@ -153,7 +153,7 @@
     //iteramos sobre las cartas y una variable 'tipoPoke' guarda el contenido del atributo 'tipo' alojado en su contenedor. 
     for (const carta of cartas) {
       const tipoPoke = carta.getElementsByClassName("tipo")[0].textContent.toLowerCase();
-      //si el tipo corresponde con el 'tipo' guardado, se ocultan las cartas coincidentes.
+      //si el tipo corresponde con el 'tipo' guardado, se ocultan las cartas no coincidentes.
       if (tipoPoke.includes(tipo.toLowerCase())) {
         carta.style.display = "";
       } else {
