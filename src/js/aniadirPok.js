@@ -63,7 +63,7 @@
     //gestion de los datos, al enviar el formulario
         function aniadirP() {
             //bajo los pokemons
-            let pokemons=JSON.parse(localStorage.getItem('pokemons'));
+            let pokemons=JSON.parse(localStorage.getItem('pokemitos'));
             form.addEventListener("submit",function(event) { 
                 //guardo los valores k 
                 let nombrePokemon=inputNombre.value;
@@ -79,10 +79,10 @@
                 //lo añado al array
                 pokemons.push(nuevo);
                 //lo subo 
-                localStorage.setItem('pokemons',JSON.stringify(pokemons));
+                localStorage.setItem('pokemitos',JSON.stringify(pokemons));
                 //limpio los valores 
                 inputNombre.value="";
                 inputTipo.value="";
             });
         }
-        aniadirP();
+    aniadirP();
