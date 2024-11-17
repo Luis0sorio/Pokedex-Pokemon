@@ -5,6 +5,8 @@
 }
 
 .container-tipos {
+  /* background-color: #364F59; */
+  border-radius: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -39,25 +41,6 @@
   cursor: pointer;
   box-shadow: 2px 2px 2px black;
   
-  /*
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 auto; 
-  border-radius: 30px;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  font-family: 'PokemonGB', sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 10px 20px;
-  text-align: center;
-  margin: 2px;
-  border: none;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  flex-wrap: wrap;
-*/
   background-repeat: no-repeat;
   background-position: 10px center; 
   background-size: 28px 28px;
@@ -159,7 +142,6 @@
   background-image: url('../img/botones/volador.png');
   padding-left: 45px;
 }
-
 
 [class^="btn-tipo"]:hover {
   transform: scale(1.05);

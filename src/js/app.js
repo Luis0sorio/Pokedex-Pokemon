@@ -19,7 +19,6 @@ function CreacionCartas(main, contenedor) {
     let id = pk[key].id;
     let nombre = pk[key].nombre;
     let tipo = pk[key].tipos;
-    // let id2 = id;
 
     //formateamos la salida de los id de los pokemon para una mejor presentación.
     let idFormateado;
@@ -43,26 +42,15 @@ function CreacionCartas(main, contenedor) {
     let div_info = document.createElement("div");
     div_info.id = "info";
 
-    //////////
-    // div para guardar la imagen de los tipos
-    let div_tipo = document.createElement("div");
-    div_tipo.setAttribute("class", "tipo"); // definimos su clase
-    for (let i = 0; i < tipo.length; i++) { //iteramos sobre los tipos
-      let tipoPoke = tipo[i]; //guardamos los tipos
-      let imgTipo = document.createElement("img"); //creamos etiquetas <img>
-      imgTipo.src = "./src/img/botones/" + tipoPoke.toLowerCase() + ".png"; // establecemos la ruta para que las reciba
-      imgTipo.alt = tipoPoke.toLowerCase(); // uso del atributo 'alt' para usarlo en el filtrado
-      imgTipo.classList.add("tipo-img"); // definimos una clase para cada una 
-      div_tipo.appendChild(imgTipo); // establecemos el nodo padre
-    }
-    //////////
-
     //creo la papelera
     let papelera = document.createElement("div");
     papelera.id = "papelera";
     let button = document.createElement("button");
     button.type = "submit";
-    button.textContent = "borrar";
+    // asignamos un icon de font-awesome a la papelera
+    let icon = document.createElement("i");
+    icon.className = "fas fa-trash";
+    button.appendChild(icon);
     papelera.appendChild(button);
 
     //creo el card
@@ -78,9 +66,17 @@ function CreacionCartas(main, contenedor) {
     let div_numero = document.createElement("div");
     div_numero.setAttribute("id", "numero");
     div_numero.textContent = idFormateado;
-    // let div_tipo = document.createElement("div");
-    // div_tipo.setAttribute("class", "tipo");
-    // div_tipo.textContent = tipo;
+    // div para guardar la imagen de los tipos
+    let div_tipo = document.createElement("div");
+    div_tipo.setAttribute("class", "tipo"); // definimos su clase
+    for (let i = 0; i < tipo.length; i++) { //iteramos sobre los tipos
+      let tipoPoke = tipo[i]; //guardamos los tipos
+      let pngTipo = document.createElement("img"); //creamos etiquetas <img>
+      pngTipo.src = "./src/img/botones/" + tipoPoke.toLowerCase() + ".png"; // establecemos la ruta para que las reciba
+      pngTipo.alt = tipoPoke.toLowerCase(); // uso del atributo 'alt' para usarlo en el filtrado
+      pngTipo.classList.add("tipo-img"); // definimos una clase para cada una 
+      div_tipo.appendChild(pngTipo); // establecemos el nodo padre
+    }
 
     //añado la info  al div_info
     div_info.appendChild(div_numero);
@@ -177,37 +173,22 @@ crearBotonesTipos();
  * Funcion que maneja el evento de raton que filtra por tipo
  * @param {String} tipo
  */
-/*
-  function filtrarTipos(tipo) {
-    //creamos una constante 'cartas' que alberga cada carta referenciada por la clase.
-    const cartas = contenedor.getElementsByClassName("card");
-    //iteramos sobre las cartas y una variable 'tipoPoke' guarda el contenido del atributo 'tipo' alojado en su contenedor. 
-    for (const carta of cartas) {
-      const tipoPoke = carta.getElementsByClassName("tipo")[0].textContent.toLowerCase();
-      //si el tipo corresponde con el 'tipo' guardado, se ocultan las cartas no coincidentes.
-      if (tipoPoke.includes(tipo.toLowerCase())) {
-        carta.style.display = "";
-      } else {
-        carta.style.display = "none";
-      }
-    }
-  }*/
 function filtrarTipos(tipo) {
   //creamos una constante 'cartas' que alberga cada carta referenciada por la clase.
   const cartas = contenedor.getElementsByClassName("card");
   //iteramos sobre las cartas y una variable 'pngTipos' guarda las imagenes en su contenedor. 
   for (const carta of cartas) {
     const pngTipos = carta.getElementsByClassName("tipo-img");
-    let coinciden = false; // booleano para establecer la coincidencia
+    let coincidenTipos = false; // booleano para establecer la coincidencia
 
     // si alguna imagen coincide con el tipo filtrado se torna verdadero
     for (const img of pngTipos) {
       if (img.alt === tipo.toLowerCase()) { //filtra sobre el texto alternativo de cada imagen
-        coinciden = true;
+        coincidenTipos = true;
       }
     }
     // si es verdadero, coinciden, se muestran. Las que no, se ocultan.
-    if (coinciden) {
+    if (coincidenTipos) {
       carta.style.display = "";
     } else {
       carta.style.display = "none";
@@ -254,7 +235,7 @@ function crearHeader() {
   let addInput = document.createElement("input"); //boton
   addInput.type = "submit";
   addInput.name = "botonAniadir";
-  addInput.value = "Añadir Pokemon";
+  addInput.value = "Añadir";
   divBtonAniadir.appendChild(addInput);
 
   // creo el input donde se ingresaran los nombre de los pokemons
@@ -269,10 +250,8 @@ function crearHeader() {
   searchButton.setAttribute("id", "searchButton");
 
   // Creo la img y le añado los atributos que contienen la imagen y la clase
-  const lupaIcon = document.createElement("img");
-  lupaIcon.setAttribute("src", "./src/img/icons/lupa.png");
-  lupaIcon.setAttribute("class", "lupa-icon");
-
+  const lupaIcon = document.createElement("i");
+  lupaIcon.className = "fas fa-search";
   // hago que sea hijo de del boton
   searchButton.appendChild(lupaIcon);
 
@@ -343,11 +322,16 @@ function crearFooter() {
   botonArriba.setAttribute("id", "arriba");
 
   //crear span
-  const spanArriba = document.createElement("span");
+  const spanArriba = document.createElement("img");
   //creacion de id span por si hay que editar algo
-  spanArriba.setAttribute("id", "spanArriba");
+  // spanArriba.setAttribute("id", "spanArriba");
+  spanArriba.setAttribute("src", "./src/img/icons/flecha-arriba.png");
+  // spanArriba.setAttribute("alt", "volver arriba");
+  spanArriba.setAttribute("class", "flecha-icon");
   //contenido span
-  spanArriba.textContent = "Volver arriba";
+  //contenido span
+  //contenido span
+  // spanArriba.textContent = "Volver arriba";
 
   //separacion del main con footer
 
@@ -379,3 +363,15 @@ function crearFooter() {
 crearHeader();
 crearFooter();
 
+//funcion para usar el objeto Screen y mostrar la resolución y características de la pantalla
+const body = document.getElementsByTagName("body")[0];
+function objetoScreen(body){
+  let divScreen =document.createElement("div");
+  divScreen.setAttribute("id", "screen-info");
+  let ancho = window.screen.width;
+  let alto = window.screen.height;
+  let resolucion = ancho + "x" + alto;
+  divScreen.textContent = `${resolucion}`;
+  body.appendChild(divScreen);
+}
+objetoScreen(body);

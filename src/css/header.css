@@ -4,20 +4,38 @@
 }
 
 header {
-  background-color: #BFA965;
+  /* background-color: #BFA965;
+  background-color: #F2DC9B;
+  background-color: #364F59; */
+  background-image: url("../img/icons/pokebola.png");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 335px;
   text-align: center;
   margin: 0 auto;
   padding: 25px;
-  width: 60%;
+  height: 305px;
+  width: 650px;
   border-radius: 25px;
+  position: relative;
+}
+
+h1 {
+  padding: 5px;
+  font-size: 50px;
+  color: gold;
+  text-shadow: 4px 4px rgb(0, 60, 255);
 }
 
 /* ETIQUETA HEADER: BUSCADOR DE POKEMON */
 .buscador-container {
+  padding: 5px;
+  margin: 15px 0 15px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  
 }
 
 .search-container {
@@ -30,7 +48,7 @@ label {
   text-shadow: 2px 2px black;
 }
 #searchInput {
-  width: 250px;
+  width: 220px;
   padding: 8px 12px;
   font-size: 15px;
   border: 1px solid;
@@ -46,7 +64,7 @@ label {
   width: 45px;
   height: 45px;
   margin-left: 10px;
-  background-color: rgb(205, 18, 222);
+  background-color: rgb(0, 60, 255);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -57,13 +75,39 @@ label {
   background-color: #e0a353;
 }
 
-.lupa-icon {
-  width: 24px;
-  height: 24px;
+#searchButton i{
+  color: white;
+}
+#searchButton:hover i{
+  color: black;
 }
 
 label {
-  margin-top: 10px;
+  margin: 10px;
   font-size: 18px;
 }
 
+#div-bton{
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+
+}
+#div-bton input {
+  background-image: url("../img/icons/mas.png");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 28px 28px;
+  color: transparent;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#div-bton input:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgba(255, 255, 255, 0.5);
+}

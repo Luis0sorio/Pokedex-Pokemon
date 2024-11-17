@@ -1,56 +1,35 @@
-h1 {
-    font-size: 40px;
-    color: gold;
-    text-shadow: 3px 3px rgb(0, 60, 255);
-  }
 
   body {
     background-attachment: fixed;
-    background-image: url("../img/icons/bcstyle1.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../img/icons/juego.png");
+    background-color: #364F59;
+    background-repeat: repeat;
+    background-size: 40%;
     background-position: center;
     font-family: 'PokemonGB', sans-serif;
   } 
 
+  #screen-info {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+
+  }
+
   main {
- 
     padding: 2rem;
     display: flex; 
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: cen;
-  }
-  
-  .fila {
-    display: flex; 
-  }
-/*
-  .card {
-    margin: 18px;
-    width: 225px;
-    height: 305px;
-    flex-direction: column;
-    background-image: url("../img/icons/bc-card-3.avif");
-    background-size: cover;
     background-position: center;
-    color: black;
-    font-size: 10px;
-    font-weight: bolder;
-    display: flex;
-    text-transform: uppercase;
-    align-items: center; 
-    justify-content: center; 
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    overflow: hidden;
-    position: relative;
-    background-image:
-    radial-gradient(circle at center, rgba(227, 231, 11, 0.8), rgba(7, 7, 7, 0)),
-    repeating-conic-gradient(from 4deg, rgba(223, 17, 17, 0.05), rgba(248, 215, 6, 0.05) 10deg, transparent 10deg, transparent 20deg);
-  }*/
+  }
+
   .card {
     margin: 18px;
     width: 225px;
@@ -63,50 +42,29 @@ h1 {
     box-shadow: 15px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
-    background-image: url("../img/icons/pball.webp");
-    background-repeat: no-repeat;
-    background-size: 370px;
-    background-position: center;
     color: black;
     font-size: 15px;
     font-weight: bolder;
     text-transform: uppercase;
     text-align: center;
+    background-color: rgba(228, 224, 224, 0.8);
   }
-  /*
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle at center, black);
-    z-index: 1;
-  }*/
   
-  /*
-  .card::after {
-    content: '';
-    position: absolute;
+  .card::before {
+    content: ""; position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    border: 5px solid yellow;
-    z-index: 2;
-    box-sizing: border-box;
-}
-*/
-/*
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-image: url("../img/icons/pball.webp");
+    background-repeat: no-repeat;
+    background-size: 370px;
+    background-position: center;
+    opacity: 1;
+    z-index: -1;
+    border-radius: inherit;
   }
-*/
+  
   .contenedor {
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +73,18 @@ h1 {
     max-width: 900px;
   }
 
+  #papelera button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  #papelera button i {
+    font-size: 18px; 
+    color: darkred;
+  }
+  #papelera button:hover i {
+    color: crimson;
+  }
   #numero{
     text-align: center;
     font-size: 12px;
