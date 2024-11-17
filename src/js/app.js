@@ -94,6 +94,11 @@ function CreacionCartas(main, contenedor) {
 
     //añado al contenedor de cartas las cartas
     contenedor.appendChild(div);
+
+    //boton para ocultar la carta seleccionada
+    button.addEventListener("click",function(){
+      div.style.display = "none"; 
+    })
   }
   //añado todo al main
   main.appendChild(contenedor);
