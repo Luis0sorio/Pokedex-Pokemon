@@ -1,5 +1,8 @@
 let pokemitos = Array.from(pokemon); //copia del objeto original(para modificarla y eso)
-localStorage.setItem("pokemitos", JSON.stringify(pokemitos)); //lo subimos
+let objetoPokemons=localStorage.getItem('pokemitos');
+if (objetoPokemons==null) {
+  localStorage.setItem('pokemitos',JSON.stringify(pokemitos))
+}
 
 let main = document.querySelector("main");
 main.setAttribute("id", "main");
@@ -59,16 +62,23 @@ function CreacionCartas(main, contenedor) {
     div_info.appendChild(div_nombre);
     div_info.appendChild(div_tipo);
 
-    //añado al div-carta el div de la info y tmb la papelera
-    div.appendChild(div_img);
-    div.appendChild(div_info);
-    //div.appendChild(papelera);
+      //añado al div-carta el div de la info y tmb la papelera
+      div.appendChild(div_img);
+      div.appendChild(div_info);
+      div.appendChild(papelera);
 
     //añado al contenedor de cartas las cartas
     contenedor.appendChild(div);
+
+    button.addEventListener("click", function () {
+      div.style.display = "none"; // Oculta la carta
+    });
   }
   //añado todo al main
   main.appendChild(contenedor);
+
+  
+
 }
 CreacionCartas(main, contenedor);
 let p = document.getElementById("papelera");
@@ -110,17 +120,17 @@ function crearBotonesTipos() {
     }
   }
 
-	//para poder ordenar lso tiposy mantener el ordem, convertimos el Set a array
-  let arrayTipos = Array.from(setTipos).sort();
-  //creamos un boton 'TODOS' cuya funcions erá filtrar y mostrar todas las cartas.
-  let todos = document.createElement("button");
-  todos.textContent = "TODOS";
-  todos.setAttribute("id", "todos");
-  todos.classList.add("btn-tipo");
-  todos.addEventListener("click", function () {
-    mostrarTodos(); // evento que mustra todas las cartas
-  });
-  divTipos.appendChild(todos); // le asignamos su nodo padre.
+    //para poder ordenar lso tiposy mantener el ordem, convertimos el Set a array
+    let arrayTipos = Array.from(setTipos).sort();
+    //creamos un boton 'TODOS' cuya funcion será filtrar y mostrar todas las cartas.
+    let todos = document.createElement("button");
+    todos.textContent = "_____________"; // este es el botón 'TODOS', editado para una mejor visualización con CSS
+    todos.setAttribute("id", "todos");
+    todos.classList.add("btn-tipo");
+    todos.addEventListener("click", function () {
+      mostrarTodos(); // evento que muestra todas las cartas
+    });
+    divTipos.appendChild(todos); // le asignamos su nodo padre.
 
 	//iteramos sobre el array y guardamos de nuevo los tipos en una nueva variable
   for (let i = 0; i < arrayTipos.length; i++) {
@@ -139,6 +149,24 @@ function crearBotonesTipos() {
 }
 crearBotonesTipos();
 
+  /**
+   * Funcion que maneja el evento de raton que filtra por tipo
+   * @param {String} tipo 
+   */
+  function filtrarTipos(tipo) {
+    //creamos una constante 'cartas' que alberga cada carta referenciada por la clase.
+    const cartas = contenedor.getElementsByClassName("card");
+    //iteramos sobre las cartas y una variable 'tipoPoke' guarda el contenido del atributo 'tipo' alojado en su contenedor. 
+    for (const carta of cartas) {
+      const tipoPoke = carta.getElementsByClassName("tipo")[0].textContent.toLowerCase();
+      //si el tipo corresponde con el 'tipo' guardado, se ocultan las cartas no coincidentes.
+      if (tipoPoke.includes(tipo.toLowerCase())) {
+        carta.style.display = "";
+      } else {
+        carta.style.display = "none";
+      }
+    }
+  }
 /**
  * Funcion que maneja el evento de raton que filtra por tipo
  * @param {String} tipo 
@@ -190,6 +218,15 @@ function crearHeader() {
   const containersearch = document.createElement("div");
   containersearch.setAttribute("class", "search-container");
 
+      //boton de añadir pokemons
+      let divBtonAniadir=document.createElement("div");//div para el boton
+      divBtonAniadir.id="div-bton";
+      let addInput = document.createElement("input");//boton
+      addInput.type="submit";
+      addInput.name="botonAniadir";
+      addInput.value="Añadir Pokemon";
+      divBtonAniadir.appendChild(addInput);
+
   // creo el input donde se ingresaran los nombre de los pokemons
   const searchInput = document.createElement("input");
   searchInput.setAttribute("type", "text");
@@ -212,6 +249,7 @@ function crearHeader() {
   // Añado el input y el botón al contenedor
   containersearch.appendChild(searchInput);
   containersearch.appendChild(searchButton);
+  containersearch.appendChild(divBtonAniadir);//añado el div q contiene el boton al contenedor
 
   // Añado el container-search al buscador-container
   containerbuscador.appendChild(containersearch);
@@ -239,6 +277,10 @@ function crearHeader() {
       buscarPokemon(searchInput);
     }
   });
+  //evento del boton para añdir un pokemon
+  addInput.addEventListener('click', function() {
+    window.open("src/js/formularioP.html", "_blank");//se abre otra pagina cn el fomrulario
+  });  
 }
 
 function buscarPokemon(searchInput) {

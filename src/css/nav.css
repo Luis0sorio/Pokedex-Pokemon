@@ -5,15 +5,15 @@
 }
 
 .container-tipos {
-  /* background-color: rgb(174, 174, 244); */
+  display: flex;
+  flex-wrap: wrap; 
   margin-block: 10px;
   padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: .5rem;
-  align-items: center;
-  
+  justify-content: center; 
+  align-items: center; 
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 900px;
 }
 
 .h2-tipos{
@@ -24,9 +24,9 @@
   display: flex;
 }
 
-[class^="btn-tipo-"] {
+[class^="btn-tipo"] {
   display: grid;
-  margin: 10px; 
+  margin: 0 auto; 
   border-radius: 30px;
   color: white;
   text-shadow: 1px 1px 2px black;
@@ -39,171 +39,158 @@
   border: none;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  flex: 1 1 calc(20% - 10px);
   flex-wrap: wrap;
-  /* gap: 10px; */
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(0,0,0,0.2));
 }
 
-.btn-tipo-acero{
-  background-color: #D4C9CD;  
+#todos{
+  background-color: transparent;
+  color: transparent;
+  text-shadow: 1px 1px 1px;
+  background-image: url('../img/botones/pokemon.png');
+  background-repeat: no-repeat;
+  background-position: 14px center; 
+  background-size: 105px 105px;
+  height: 36px;
+}
+#acero{
+  background-color: #8FA1A6;  
   background-image: url('../img/botones/acero.png');
   background-repeat: no-repeat;
-  background-position: 10px center; /* Ubica la imagen a la izquierda */
+  background-position: 10px center; 
   background-size: 28px 28px;
-  max-width: 125px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
-.btn-tipo-agua{
-  background-color: #0C79ED;
+#agua{
+  background-color: #0367A6;
   background-image: url('../img/botones/agua.png');
   background-repeat: no-repeat;
-  background-position: 10px center; /* Ubica la imagen a la izquierda */
+  background-position: 10px center; 
   background-size: 28px 28px;
-  max-width: 120px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
-.btn-tipo-bicho{
-  background-color: #5B9B38;
-  background-image: url(../img/botones/agua.png);
+#bicho{
+  background-color: #BABF17;
+  background-image: url('../img/botones/bug.png');
   background-repeat: no-repeat;
-  background-position: 10px center; /* Ubica la imagen a la izquierda */
+  background-position: 10px center; 
   background-size: 28px 28px;
-  max-width: 125px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
-.btn-tipo-dragón{
-  background-color: #6243fb; 
-  background-image: url();
-  max-width: 120px;
-  padding-left: 25px;
+#dragón{
+  background-color: #7B6FA6; 
+  background-image: url('../img/botones/dragon.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-eléctrico{
+#eléctrico{
   padding-left: 50px;
-  max-width: 185px;
-  background-color: #FAE410; 
-  background-image: url('../img/botones/acero.png');
+  background-color: #F2B705; 
+  background-image: url('../img/botones/electric.png');
   background-repeat: no-repeat;
-  background-position: 10px center; /* Ubica la imagen a la izquierda */
-  background-size: 30px 30px;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-fantasma{
-  background-color: #A688D6;
-  background-image: url();
+#fantasma{
+  background-color: #54458C;
+  background-image: url('../img/botones/ghost.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-fuego{
-  background-color: #D6491F;
-  background-image: url();
+#fuego{
+  background-color: #D9303E;
+  background-image: url('../img/botones/fire.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-hada{
-  background-color: #D665D2;
-  background-image: url();
+#hada{
+  background-color: #D99CBD;
+  background-image: url('../img/botones/fairy.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-hielo{
-  background-color: #73AFF0;
-  background-image: url();
+#hielo{
+  background-color: #39A7BF;
+  background-image: url('../img/botones/ice.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-lucha{
-  background-color: #C22E28;
-  background-image: url();
+#lucha{
+  background-color: #D94E41;
+  background-image: url('../img/botones/fight.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-normal{
-  background-color: #A8A77A;
-  background-image: url();
+#normal{
+  background-color: #A6978A;
+  background-image: url('../img/botones/normal.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-planta{
-  background-color: #17D32D;
-  background-image: url();
+#planta{
+  background-color: #048C34;
+  background-image: url('../img/botones/grass.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-psíquico{
-  background-color: #F95587;
-  background-image: url();
+#psíquico{
+  background-color: #D95592;
+  background-image: url('../img/botones/psy.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-roca{
-  background-color: #624D49;
-  background-image: url();
+#roca{
+  background-color: #A68953;
+  background-image: url('../img/botones/rock.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-tierra{
-  background-color: #E2BF65;
-  background-image: url();
+#tierra{
+  background-color: #D9A441;
+  background-image: url('../img/botones/ground.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-veneno{
-  background-color: #A33EA1;
-  background-image: url();
+#veneno{
+  background-color: #A64E8E;
+  background-image: url('../img/botones/poison.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
-.btn-tipo-volador{
-  background-color: #93CDF0;
-  background-image: url();
+#volador{
+  background-color: #6997BF;
+  background-image: url('../img/botones/fly.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
+  padding-left: 45px;
 }
 
-[class^="btn-tipo-"]:hover {
+[class^="btn-tipo"]:hover {
   transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgba(255, 255, 255, 0.5);
-}
-
-.container-habitats {
-  background-color: blue;
-  margin-block: 10px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-.h2-habitats{
-  color: white;
-  padding: 15px;
-  margin-block: 15px;
-  display: flex;
-}
-
-[class^="btn-hab-"] {
-  margin: 10px; 
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: 1em;
-  text-shadow: 1px 1px 2px black;
-  cursor: pointer;
-  border: none;
-  font-weight: bold;
-  box-shadow: 0px 2px #000000;
-  flex: 1 1 calc(20% - 10px); 
-  max-width: 130px; 
-  max-height: 100px;
-  background-size: cover; /* Ajusta la imagen para cubrir todo el área del botón */
-  background-position: center;
-}
-
-.btn-hab-agua_dulce{
-  background-image: url(../img/botones/agua-dulce.jpg);
-
-}
-.btn-hab-bosque{
-  background-image: url(../img/botones/bosque.jpg);
-  color: white;
-
-}
-.btn-hab-cueva{
-  background-image: url(../img/botones/cueva.jpg);
-  color: white;
-}
-.btn-hab-montaña{
-  background-image: url('../img/botones/montaña.jpg');
-  background-size: 35px 35px; /* Ajusta la imagen para cubrir todo el área del botón */
-  background-position: center;
-}
-.btn-hab-pradera{
-  background-image: url(../img/botones/pradera.jpg);
-
-}
-.btn-hab-urbano{
-  background-image: url(../img/botones/urbano.jpg);
-
-}
-
-[class^="btn-hab-"]:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgba(255, 255, 255, 0.5);
 }

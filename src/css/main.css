@@ -5,8 +5,8 @@ h1 {
   }
 
   body {
-    background-image: url("../img/icons/pattern-3.png");
-    /* background-color: rgb(131, 247, 251); */
+    /* background-image: url("../img/icons/pattern-3.png"); */
+    background-color: white;
     background-repeat: repeat;
     background-attachment: fixed;
     /* background-size: 120px 120px; */
@@ -95,6 +95,7 @@ h1 {
     z-index: 1;
   }*/
   
+  /*
   .card::after {
     content: '';
     position: absolute;
@@ -103,16 +104,17 @@ h1 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 5px solid yellow; /* Borde luminoso */
+    border: 5px solid yellow;
     z-index: 2;
     box-sizing: border-box;
 }
-
-  /* .card:hover {
+*/
+/*
+  .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  } */
-
+  }
+*/
   .contenedor {
     display: flex;
     flex-wrap: wrap;
