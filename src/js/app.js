@@ -233,7 +233,7 @@ function crearHeader() {
   let divBtonAniadir = document.createElement("div"); //div para el boton
   divBtonAniadir.id = "div-bton";
   let addInput = document.createElement("input"); //boton
-  addInput.type = "submit";
+  addInput.type = "button";
   addInput.name = "botonAniadir";
   addInput.value = "Añadir";
   divBtonAniadir.appendChild(addInput);
@@ -288,7 +288,7 @@ function crearHeader() {
   });
   //evento del boton para añdir un pokemon
   addInput.addEventListener("click", function () {
-    window.open("src/js/formularioP.html", "_blank"); //se abre otra pagina cn el fomrulario
+    window.location.href="src/pages/agregar.html"; //se abre el formulario
   });
 }
 
