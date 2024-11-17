@@ -5,20 +5,23 @@ h1 {
   }
 
   body {
-    /* background-image: url("../img/icons/pattern-3.png"); */
-    background-color: white;
-    background-repeat: repeat;
     background-attachment: fixed;
-    /* background-size: 120px 120px; */
+    background-image: url("../img/icons/bcstyle1.webp");
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     font-family: 'PokemonGB', sans-serif;
   } 
 
-  
   main {
+ 
+    padding: 2rem;
     display: flex; 
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: cen;
   }
   
   .fila {
@@ -57,28 +60,17 @@ h1 {
     justify-content: center;
     border-radius: 50%;
     flex-direction: column;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
-    background-image: url("../img/icons/bc-card-2.jpg");
+    background-image: url("../img/icons/pball.webp");
     background-repeat: no-repeat;
-    background-size: 335px;
+    background-size: 370px;
     background-position: center;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
+    color: black;
+    font-size: 15px;
+    font-weight: bolder;
     text-transform: uppercase;
-    text-align: center;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -100%) rotate(-20deg);
-    transform-origin: left bottom;
-    width: 120px;
     text-align: center;
   }
   /*
@@ -118,20 +110,24 @@ h1 {
   .contenedor {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;/*alinea cartas*/
+    justify-content: center;
     gap: 20px;
+    max-width: 900px;
   }
 
-  p {
-    font-size: 14px;
-  }
-  #info{
+  #numero{
     text-align: center;
     font-size: 12px;
   }
+  
+  #info img {
+    width: 30px;
+    height: auto; 
+    margin: 5px; 
+    display: inline-block;
+  }
 
-  .imagenes img{
+  .imagenes img {
     height: 55px;
     width: 55px;
-    
   }

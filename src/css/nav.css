@@ -6,26 +6,43 @@
 
 .container-tipos {
   display: flex;
-  flex-wrap: wrap; 
-  margin-block: 10px;
-  padding: 10px;
-  justify-content: center; 
-  align-items: center; 
-  gap: 0.5rem;
-  width: 100%;
-  max-width: 900px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  margin: 20px;
+  max-width: 1920px;
+  /* box-shadow: 0 .1rem rgb(85, 83, 83); */
 }
 
 .h2-tipos{
+ 
+  border-radius: 30px;
   font-size: 14px;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 15px;
-  margin-block: 15px;
-  display: flex;
 }
 
 [class^="btn-tipo"] {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  font-family: 'PokemonGB';
+  font-weight: bolder;
+  font-size: 12px;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px black;
+  
+  /*
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin: 0 auto; 
   border-radius: 30px;
   color: white;
@@ -40,157 +57,112 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   flex-wrap: wrap;
+*/
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 28px 28px;
 }
 
 #todos{
-  background-color: transparent;
+  background-color: beige;
   color: transparent;
   text-shadow: 1px 1px 1px;
   background-image: url('../img/botones/pokemon.png');
   background-repeat: no-repeat;
-  background-position: 14px center; 
+  background-position: 7px center; 
   background-size: 105px 105px;
-  height: 36px;
+  height: 37px;
 }
 #acero{
   background-color: #8FA1A6;  
   background-image: url('../img/botones/acero.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
   padding-left: 45px;
 }
 #agua{
   background-color: #0367A6;
   background-image: url('../img/botones/agua.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
   padding-left: 45px;
 }
 #bicho{
   background-color: #BABF17;
-  background-image: url('../img/botones/bug.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/bicho.png');
   padding-left: 45px;
 }
 #dragón{
   background-color: #7B6FA6; 
-  background-image: url('../img/botones/dragon.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/dragón.png');
   padding-left: 45px;
 }
 #eléctrico{
   padding-left: 50px;
   background-color: #F2B705; 
-  background-image: url('../img/botones/electric.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/eléctrico.png');
   padding-left: 45px;
 }
 #fantasma{
   background-color: #54458C;
-  background-image: url('../img/botones/ghost.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/fantasma.png');
   padding-left: 45px;
 }
 #fuego{
   background-color: #D9303E;
-  background-image: url('../img/botones/fire.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/fuego.png');
   padding-left: 45px;
 }
 #hada{
   background-color: #D99CBD;
-  background-image: url('../img/botones/fairy.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/hada.png');
   padding-left: 45px;
 }
 #hielo{
   background-color: #39A7BF;
-  background-image: url('../img/botones/ice.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/hielo.png');
   padding-left: 45px;
 }
 #lucha{
   background-color: #D94E41;
-  background-image: url('../img/botones/fight.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/lucha.png');
   padding-left: 45px;
 }
 #normal{
   background-color: #A6978A;
   background-image: url('../img/botones/normal.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
   padding-left: 45px;
 }
 #planta{
   background-color: #048C34;
-  background-image: url('../img/botones/grass.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/planta.png');
   padding-left: 45px;
 }
 #psíquico{
   background-color: #D95592;
-  background-image: url('../img/botones/psy.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/psíquico.png');
   padding-left: 45px;
 }
 #roca{
   background-color: #A68953;
-  background-image: url('../img/botones/rock.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/roca.png');
   padding-left: 45px;
 }
 #tierra{
   background-color: #D9A441;
-  background-image: url('../img/botones/ground.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/tierra.png');
   padding-left: 45px;
 }
 #veneno{
   background-color: #A64E8E;
-  background-image: url('../img/botones/poison.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/veneno.png');
   padding-left: 45px;
 }
 #volador{
   background-color: #6997BF;
-  background-image: url('../img/botones/fly.png');
-  background-repeat: no-repeat;
-  background-position: 10px center; 
-  background-size: 28px 28px;
+  background-image: url('../img/botones/volador.png');
   padding-left: 45px;
 }
+
 
 [class^="btn-tipo"]:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
+
