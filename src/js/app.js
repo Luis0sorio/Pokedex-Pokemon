@@ -64,19 +64,7 @@ function CreacionCartas(main, contenedor) {
     button.type = "submit";
     button.textContent = "borrar";
     papelera.appendChild(button);
-    //creo la papelera
-    let papelera = document.createElement("div");
-    papelera.id = "papelera";
-    let button = document.createElement("button");
-    button.type = "submit";
-    button.textContent = "borrar";
-    papelera.appendChild(button);
 
-    //creo el card
-    let div = document.createElement("div");
-    div.className = "card";
-    div.id = id; //se asigna como id, el id del propio pokemon
-    div.setAttribute("data-nombre", nombre);
     //creo el card
     let div = document.createElement("div");
     div.className = "card";
@@ -94,10 +82,6 @@ function CreacionCartas(main, contenedor) {
     // div_tipo.setAttribute("class", "tipo");
     // div_tipo.textContent = tipo;
 
-    //añado la info  al div_info
-    div_info.appendChild(div_numero);
-    div_info.appendChild(div_nombre);
-    div_info.appendChild(div_tipo);
     //añado la info  al div_info
     div_info.appendChild(div_numero);
     div_info.appendChild(div_nombre);
@@ -235,7 +219,6 @@ function mostrarTodos() {
 }
 
 function crearHeader() {
-function crearHeader() {
   // busco el header y le añado una id header
 
   const header = document.querySelector("header");
@@ -251,20 +234,11 @@ function crearHeader() {
   const tituloSearch = document.createElement("label");
   tituloSearch.setAttribute("for", "searchInput");
   tituloSearch.textContent = "BUSCAR POKÉMON";
-  const tituloSearch = document.createElement("label");
-  tituloSearch.setAttribute("for", "searchInput");
-  tituloSearch.textContent = "BUSCAR POKÉMON";
 
   // Creo el contenedor div donde se pondra todo lo de busqueda
   const containerbuscador = document.createElement("div");
   containerbuscador.setAttribute("class", "buscador-container");
-  // Creo el contenedor div donde se pondra todo lo de busqueda
-  const containerbuscador = document.createElement("div");
-  containerbuscador.setAttribute("class", "buscador-container");
 
-  // creo el contenedor del div de input
-  const containersearch = document.createElement("div");
-  containersearch.setAttribute("class", "search-container");
   // creo el contenedor del div de input
   const containersearch = document.createElement("div");
   containersearch.setAttribute("class", "search-container");
@@ -288,22 +262,12 @@ function crearHeader() {
   const searchButton = document.createElement("button");
   searchButton.setAttribute("type", "button");
   searchButton.setAttribute("id", "searchButton");
-  // Creo el botón de búsqueda
-  const searchButton = document.createElement("button");
-  searchButton.setAttribute("type", "button");
-  searchButton.setAttribute("id", "searchButton");
 
   // Creo la img y le añado los atributos que contienen la imagen y la clase
   const lupaIcon = document.createElement("img");
   lupaIcon.setAttribute("src", "./src/img/icons/lupa.png");
   lupaIcon.setAttribute("class", "lupa-icon");
-  // Creo la img y le añado los atributos que contienen la imagen y la clase
-  const lupaIcon = document.createElement("img");
-  lupaIcon.setAttribute("src", "./src/img/icons/lupa.png");
-  lupaIcon.setAttribute("class", "lupa-icon");
 
-  // hago que sea hijo de del boton
-  searchButton.appendChild(lupaIcon);
   // hago que sea hijo de del boton
   searchButton.appendChild(lupaIcon);
 
@@ -314,15 +278,7 @@ function crearHeader() {
 
   // Añado el container-search al buscador-container
   containerbuscador.appendChild(containersearch);
-  // Añado el container-search al buscador-container
-  containerbuscador.appendChild(containersearch);
 
-  //titulo pokemon
-  header.appendChild(tituloPoke);
-  //titulo busqueda
-  header.appendChild(tituloSearch);
-  // hago containerbuscador donde se contiene todo como hijo del header
-  header.appendChild(containerbuscador);
   //titulo pokemon
   header.appendChild(tituloPoke);
   //titulo busqueda
@@ -334,15 +290,7 @@ function crearHeader() {
   searchInput.addEventListener("input", function () {
     buscarPokemon(searchInput);
   });
-  // Evento para escribir y buscar
-  searchInput.addEventListener("input", function () {
-    buscarPokemon(searchInput);
-  });
 
-  // Evento de clic en el botón para realizar la búsqueda
-  searchButton.addEventListener("click", function () {
-    buscarPokemon(searchInput);
-  });
   // Evento de clic en el botón para realizar la búsqueda
   searchButton.addEventListener("click", function () {
     buscarPokemon(searchInput);
@@ -362,21 +310,7 @@ function crearHeader() {
 
 function buscarPokemon(searchInput) {
   const pokemonBusqueda = searchInput.value.toLowerCase();
-function buscarPokemon(searchInput) {
-  const pokemonBusqueda = searchInput.value.toLowerCase();
-
   const cartas = contenedor.getElementsByClassName("card");
-  const cartas = contenedor.getElementsByClassName("card");
-
-  for (const carta of cartas) {
-    const nombrePok = carta.getAttribute("data-nombre").toLowerCase();
-    if (nombrePok === pokemonBusqueda || nombrePok.includes(pokemonBusqueda)) {
-      carta.style.display = "";
-    } else {
-      carta.style.display = "none";
-    }
-  }
-}
   for (const carta of cartas) {
     const nombrePok = carta.getAttribute("data-nombre").toLowerCase();
     if (nombrePok === pokemonBusqueda || nombrePok.includes(pokemonBusqueda)) {
@@ -389,12 +323,7 @@ function buscarPokemon(searchInput) {
 
 function crearFooter() {
   //Boton de Volver Arriba
-function crearFooter() {
-  //Boton de Volver Arriba
 
-  //footer id
-  const footer = document.querySelector("footer");
-  footer.setAttribute("id", "footer");
   //footer id
   const footer = document.querySelector("footer");
   footer.setAttribute("id", "footer");
@@ -402,14 +331,7 @@ function crearFooter() {
   //contenedor div de boton
   const divArriba = document.createElement("div");
   divArriba.setAttribute("class", "go-top");
-  //contenedor div de boton
-  const divArriba = document.createElement("div");
-  divArriba.setAttribute("class", "go-top");
 
-  //crear boton
-  const botonArriba = document.createElement("button");
-  botonArriba.setAttribute("type", "button");
-  botonArriba.setAttribute("id", "arriba");
   //crear boton
   const botonArriba = document.createElement("button");
   botonArriba.setAttribute("type", "button");
@@ -421,33 +343,16 @@ function crearFooter() {
   spanArriba.setAttribute("id", "spanArriba");
   //contenido span
   spanArriba.textContent = "Volver arriba";
-  //crear span
-  const spanArriba = document.createElement("span");
-  //creacion de id span por si hay que editar algo
-  spanArriba.setAttribute("id", "spanArriba");
-  //contenido span
-  spanArriba.textContent = "Volver arriba";
 
   //separacion del main con footer
-  //separacion del main con footer
 
-  const hr = document.createElement("hr");
   const hr = document.createElement("hr");
 
   //icono git
   const gitIcon = document.createElement("img");
   gitIcon.setAttribute("src", "./src/img/icons/logotipo-de-github.png");
   gitIcon.setAttribute("id", "gitIcon");
-  //icono git
-  const gitIcon = document.createElement("img");
-  gitIcon.setAttribute("src", "./src/img/icons/logotipo-de-github.png");
-  gitIcon.setAttribute("id", "gitIcon");
 
-  botonArriba.appendChild(spanArriba); // span dentro del boton
-  divArriba.appendChild(botonArriba); // el boton dentro del div
-  footer.appendChild(hr); //hr dentro del footer
-  hr.appendChild(gitIcon);
-  footer.appendChild(divArriba); //el div dentro del footer
   botonArriba.appendChild(spanArriba); // span dentro del boton
   divArriba.appendChild(botonArriba); // el boton dentro del div
   footer.appendChild(hr); //hr dentro del footer
@@ -468,5 +373,4 @@ function crearFooter() {
 
 crearHeader();
 crearFooter();
-crearHeader();
-crearFooter();
+
