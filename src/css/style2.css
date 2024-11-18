@@ -3,6 +3,12 @@
     src: url(../fonts/PokemonGb-RAeo.ttf) format("truetype");
   }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 h1 {
     font-family: "PokemonGB";
     text-align: center;
@@ -28,3 +34,10 @@ p {
     font-family: "PokemonGB";
     font-style: oblique;
 }
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    }

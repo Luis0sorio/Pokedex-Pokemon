@@ -99,7 +99,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 2;
-    border: 10px solid #F2CB05; #3658BF;
+    border: 10px solid #F2CB05;
   }
   
   .reverso {
@@ -117,7 +117,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    border: 10px solid #3658BF; #3F61A6;
+    border: 10px solid #3658BF; 
   }
 
   .carta:hover .carta-inner {
@@ -152,7 +152,6 @@ body {
     cursor: pointer;
   }
   #papelera button i {
-    background-color: ;
     border-radius: 3px;
     padding: 2px;
     font-size: 22px; 
