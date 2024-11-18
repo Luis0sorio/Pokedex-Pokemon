@@ -35,9 +35,13 @@ function CreacionCartas(main, contenedor) {
     div_img.className = "imagenes";
 
     let img = document.createElement("img");
-    img.src = "./src/img/pokemon/" + id + ".png";
-    div_img.appendChild(img);
-
+    if (pk[key].nuevo) {//si existe nuevo , le doy otra foto al pokemon nuevo
+      img.src="./src/img/pokemon/imgPokemonnuevo.png";
+      div_img.appendChild(img);
+    }else{
+      img.src = "./src/img/pokemon/" + id + ".png";
+      div_img.appendChild(img);
+    }
     //creo un div para meter toda la info
     let div_info = document.createElement("div");
     div_info.id = "info";

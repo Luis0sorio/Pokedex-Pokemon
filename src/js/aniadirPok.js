@@ -132,7 +132,8 @@
                 let nuevo={
                     id:idd,
                     nombre:nombreFinal,
-                    tipos:tipoFinal
+                    tipos:[tipoFinal],
+                    nuevo:true
                 }
                 //lo añado al array
                 pokemons.push(nuevo);
