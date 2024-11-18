@@ -23,8 +23,8 @@ header {
 h1 {
   padding: 5px;
   font-size: 50px;
-  color: gold;
-  text-shadow: 4px 4px rgb(0, 60, 255);
+  color: #F2CB05;
+  text-shadow: 4px 4px #3658BF;
 }
 
 /* ETIQUETA HEADER: BUSCADOR DE POKEMON */

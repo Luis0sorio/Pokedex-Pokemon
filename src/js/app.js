@@ -1,24 +1,31 @@
-let pokemitos = Array.from(pokemon); //copia del objeto original(para modificarla y eso)
+let pokemitos = Array.from(pokemon); //copia del objeto original
 let objetoPokemons = localStorage.getItem("pokemitos");
 if (objetoPokemons == null) {
   localStorage.setItem("pokemitos", JSON.stringify(pokemitos));
 }
 
+// acceso al main del documento
 let main = document.querySelector("main");
 main.setAttribute("id", "main");
 
-//creo elcontenedor
+//creo el contenedor de las cartas
 let contenedor = document.createElement("div");
 contenedor.className = "contenedor";
 
+/**
+ * funcion que crea las cartas de los pokemon
+ * @param {HTMLElement} main 
+ * @param {HTMLElement} contenedor 
+ */
 function CreacionCartas(main, contenedor) {
+  //accedemos al objeto de los pokemon
   let pk = JSON.parse(localStorage.getItem("pokemitos"));
-  //recorro el objeto
+  //extraemos los atributos a utilizar
   for (let key in pk) {
-    //la info que necesitamos
     let id = pk[key].id;
     let nombre = pk[key].nombre;
     let tipo = pk[key].tipos;
+    let stats = pk[key].estadisticas_base;
 
     //formateamos la salida de los id de los pokemon para una mejor presentación.
     let idFormateado;
@@ -30,86 +37,99 @@ function CreacionCartas(main, contenedor) {
       idFormateado = `#${id}`;
     }
 
-    //imagen del pokemon y su contenedor
-    let div_img = document.createElement("div");
-    div_img.className = "imagenes";
+    //creación del contendor de la carta
+    let carta = document.createElement("div");
+    carta.setAttribute("class", "carta");
+    carta.id = id; //se asigna como id, el id del propio pokemon
+    carta.setAttribute("data-nombre", nombre);
 
+    //contenedor del anverso (carta)
+    let anverso = document.createElement("div");
+    anverso.setAttribute("class", "anverso"); //clase del contenedor
+    //contenedor de la imagen en el anverso
+    let imgDiv = document.createElement("div");
+    imgDiv.setAttribute("class", "imagenes"); //clase del div que soporta es sprite
     let img = document.createElement("img");
-    if (pk[key].nuevo) {//si existe nuevo , le doy otra foto al pokemon nuevo
-      img.src="./src/img/pokemon/imgPokemonnuevo.png";
-      div_img.appendChild(img);
-    }else{
-      img.src = "./src/img/pokemon/" + id + ".png";
-      div_img.appendChild(img);
-    }
-    //creo un div para meter toda la info
-    let div_info = document.createElement("div");
-    div_info.id = "info";
+    img.src = "./src/img/pokemon/" + id + ".png";
+    imgDiv.appendChild(img);
 
-    //creo la papelera
-    let papelera = document.createElement("div");
-    papelera.id = "papelera";
-    let button = document.createElement("button");
-    button.type = "submit";
-    // asignamos un icon de font-awesome a la papelera
-    let icon = document.createElement("i");
-    icon.className = "fas fa-trash";
-    button.appendChild(icon);
-    papelera.appendChild(button);
-
-    //creo el card
-    let div = document.createElement("div");
-    div.className = "card";
-    div.id = id; //se asigna como id, el id del propio pokemon
-    div.setAttribute("data-nombre", nombre);
-
-    //se rellenan
-    let div_nombre = document.createElement("div");
+    //informacion del pokemon (anverso)
+    let infoDiv = document.createElement("div");
+    infoDiv.id = "info";
+    let div_nombre = document.createElement("div"); //div del nombre
     div_nombre.setAttribute("id", "nombre");
     div_nombre.textContent = nombre;
-    let div_numero = document.createElement("div");
+    let div_numero = document.createElement("div"); //div del numero
     div_numero.setAttribute("id", "numero");
     div_numero.textContent = idFormateado;
     // div para guardar la imagen de los tipos
-    let div_tipo = document.createElement("div");
-    div_tipo.setAttribute("class", "tipo"); // definimos su clase
-    for (let i = 0; i < tipo.length; i++) { //iteramos sobre los tipos
+    let div_tipo = document.createElement("div");//div del tipo
+    div_tipo.setAttribute("class", "tipo"); 
+    for (let i = 0; i < tipo.length; i++) {
+      //iteramos sobre los tipos
       let tipoPoke = tipo[i]; //guardamos los tipos
       let pngTipo = document.createElement("img"); //creamos etiquetas <img>
       pngTipo.src = "./src/img/botones/" + tipoPoke.toLowerCase() + ".png"; // establecemos la ruta para que las reciba
       pngTipo.alt = tipoPoke.toLowerCase(); // uso del atributo 'alt' para usarlo en el filtrado
-      pngTipo.classList.add("tipo-img"); // definimos una clase para cada una 
+      pngTipo.classList.add("tipo-img"); // definimos una clase para cada una
       div_tipo.appendChild(pngTipo); // establecemos el nodo padre
     }
 
-    //añado la info  al div_info
-    div_info.appendChild(div_numero);
-    div_info.appendChild(div_nombre);
-    div_info.appendChild(div_tipo);
+    //añado la info  al contenedor  infoDiv
+    infoDiv.appendChild(div_numero);
+    infoDiv.appendChild(div_nombre);
+    infoDiv.appendChild(div_tipo);
 
-    //añado al div-carta el div de la info y tmb la papelera
-    div.appendChild(div_img);
-    div.appendChild(div_info);
-    div.appendChild(papelera);
+    //boton de la papelera (anverso)
+    let papelera = document.createElement("div");
+    papelera.id = "papelera";
+    let button = document.createElement("button");
+    button.type = "button";
+    // asignamos un icon de font-awesome a la papelera
+    let icon = document.createElement("i");
+    icon.className = "fas fa-trash";
+    button.appendChild(icon);
+    button.addEventListener("click", function () {
+      carta.style.display = "none"; // Ocultamos la carta al hacer clic en la papelera
+    });
+    papelera.appendChild(button);
 
-    //añado al contenedor de cartas las cartas
-    contenedor.appendChild(div);
+    // contenedor del reverso (carta)
+    let reverso = document.createElement("div");
+    reverso.setAttribute("class", "reverso");
+    // el reverso muestra las estadisticas del pokemon
+    let estadisticas = document.createElement("div"); //contenedor stats
+    estadisticas.setAttribute("class", "stats"); //clase stats
+    //iteramos sobre las estadisticas
+    for (let infoStats in stats) {
+      let statDiv = document.createElement("div");
+      statDiv.setAttribute("class", "stat");
+      statDiv.textContent = `${infoStats}: ${stats[infoStats]}`; //formateamos la salida
+      estadisticas.appendChild(statDiv);
+    }
+    reverso.appendChild(estadisticas);
 
-    //boton para ocultar la carta seleccionada
-    button.addEventListener("click",function(){
-      div.style.display = "none"; 
-    })
+    //definimos los nodos hijos del contenedor del anverso
+    anverso.appendChild(imgDiv);
+    anverso.appendChild(infoDiv);
+    anverso.appendChild(papelera);
+
+    //anverso y reverso como hijos de la carta
+    carta.appendChild(anverso);
+    carta.appendChild(reverso);
+
+    contenedor.appendChild(carta);
+
+    //evento de click que gira la carta y muestra el reverso
+    // si vuelves a hacer click, muestra el anverso
+    carta.addEventListener("click", function() { 
+      carta.classList.toggle("girar");
+    });
   }
-  //añado todo al main
   main.appendChild(contenedor);
 }
 CreacionCartas(main, contenedor);
-let p = document.getElementById("papelera");
-function b() {
-  p.addEventListener("submit", function (event) {
-    event.preventDefault();
-  });
-}
+
 
 // CREAMOS LOS BOTONES DE TIPOS
 const nav = document.getElementsByTagName("nav");
@@ -179,15 +199,16 @@ crearBotonesTipos();
  */
 function filtrarTipos(tipo) {
   //creamos una constante 'cartas' que alberga cada carta referenciada por la clase.
-  const cartas = contenedor.getElementsByClassName("card");
-  //iteramos sobre las cartas y una variable 'pngTipos' guarda las imagenes en su contenedor. 
+  const cartas = contenedor.getElementsByClassName("carta");
+  //iteramos sobre las cartas y una variable 'pngTipos' guarda las imagenes en su contenedor.
   for (const carta of cartas) {
     const pngTipos = carta.getElementsByClassName("tipo-img");
     let coincidenTipos = false; // booleano para establecer la coincidencia
 
     // si alguna imagen coincide con el tipo filtrado se torna verdadero
     for (const img of pngTipos) {
-      if (img.alt === tipo.toLowerCase()) { //filtra sobre el texto alternativo de cada imagen
+      if (img.alt === tipo.toLowerCase()) {
+        //filtra sobre el texto alternativo de cada imagen
         coincidenTipos = true;
       }
     }
@@ -202,7 +223,7 @@ function filtrarTipos(tipo) {
 
 // funcion que filtra y muestra todas las cartas de nuevo.
 function mostrarTodos() {
-  const cartas = contenedor.getElementsByClassName("card");
+  const cartas = contenedor.getElementsByClassName("carta");
   for (const carta of cartas) {
     carta.style.display = "";
   }
@@ -296,9 +317,13 @@ function crearHeader() {
   });
 }
 
+/**
+ * funcion que permite buscar al pokemon y filtrar por coincidencias en su nombre
+ * @param {HTMLElement} searchInput 
+ */
 function buscarPokemon(searchInput) {
   const pokemonBusqueda = searchInput.value.toLowerCase();
-  const cartas = contenedor.getElementsByClassName("card");
+  const cartas = contenedor.getElementsByClassName("carta");
   for (const carta of cartas) {
     const nombrePok = carta.getAttribute("data-nombre").toLowerCase();
     if (nombrePok === pokemonBusqueda || nombrePok.includes(pokemonBusqueda)) {
@@ -325,31 +350,14 @@ function crearFooter() {
   botonArriba.setAttribute("type", "button");
   botonArriba.setAttribute("id", "arriba");
 
-  //crear span
-  const spanArriba = document.createElement("img");
+  //crear imagen de icono
+  const imgArriba = document.createElement("img");
   //creacion de id span por si hay que editar algo
-  // spanArriba.setAttribute("id", "spanArriba");
-  spanArriba.setAttribute("src", "./src/img/icons/flecha-arriba.png");
-  // spanArriba.setAttribute("alt", "volver arriba");
-  spanArriba.setAttribute("class", "flecha-icon");
-  //contenido span
-  //contenido span
-  //contenido span
-  // spanArriba.textContent = "Volver arriba";
+  imgArriba.setAttribute("src", "./src/img/icons/flecha-arriba.png");
+  imgArriba.setAttribute("class", "flecha-icon");
 
-  //separacion del main con footer
-
-  const hr = document.createElement("hr");
-
-  //icono git
-  const gitIcon = document.createElement("img");
-  gitIcon.setAttribute("src", "./src/img/icons/logotipo-de-github.png");
-  gitIcon.setAttribute("id", "gitIcon");
-
-  botonArriba.appendChild(spanArriba); // span dentro del boton
+  botonArriba.appendChild(imgArriba); // span dentro del boton
   divArriba.appendChild(botonArriba); // el boton dentro del div
-  footer.appendChild(hr); //hr dentro del footer
-  hr.appendChild(gitIcon);
   footer.appendChild(divArriba); //el div dentro del footer
 
   //evento que nos redirige arriba de la pagina
@@ -358,24 +366,58 @@ function crearFooter() {
       top: 0,
     });
   });
-  // EVENTOS FILTRO DE TIPO Y HABITAT
-  gitIcon.addEventListener("click", function () {
-    window.location.href = "https://github.com/Luis0sorio/Pokedex-Pokemon";
-  });
 }
 
 crearHeader();
 crearFooter();
 
-//funcion para usar el objeto Screen y mostrar la resolución y características de la pantalla
-const body = document.getElementsByTagName("body")[0];
-function objetoScreen(body){
-  let divScreen =document.createElement("div");
-  divScreen.setAttribute("id", "screen-info");
+
+const body = document.getElementsByTagName("body")[0]; //obtenemos el cuerpo del documento
+/**
+ * funcion para usar el objeto Screen y mostrar la resolución y características de la pantalla
+ * @param {HTMLElement} body 
+ */
+function objetoScreen(body) {
+  let divScreen = document.createElement("div"); //creamos una variable contenedora donde guardaremos la informacion 
+  divScreen.setAttribute("id", "screen-info"); // definimos sus atributos
+  //creamos variables de ancho y alto de pantalla
   let ancho = window.screen.width;
   let alto = window.screen.height;
-  let resolucion = ancho + "x" + alto;
-  divScreen.textContent = `${resolucion}`;
-  body.appendChild(divScreen);
+  // variable 'resolucion' que muestra la informacion formateada
+  let resolucion = ancho + " x " + alto;
+  divScreen.textContent = `${resolucion}`; // definimos el contenido dentro del 'div'
+  body.appendChild(divScreen); // le asignamos como nodo hijo
 }
-objetoScreen(body);
+objetoScreen(body); // llamamos a la funcion y muestra la resolución en la ventana
+
+/**
+ * funcion para usar definir un enlace al repositorio de GitHub
+ * @param {HTMLElement} body 
+ */
+function enlaceGit(body){
+  let divGit = document.createElement("div");
+  //contenedor del span y del icono
+  divGit.setAttribute("class", "div-git");
+
+  //etiqueta con corta descripcion
+  let spanGit = document.createElement("span");
+  spanGit.setAttribute("class", "span-git");
+  spanGit.textContent = "Repositorio GitHub";
+
+  // icono de GitHub
+  let gitIcon = document.createElement("img");
+  gitIcon.setAttribute("src", "./src/img/icons/logotipo-de-github.png");
+  gitIcon.setAttribute("id", "gitIcon");
+
+  //defino nodos hijos
+  divGit.appendChild(spanGit);
+  divGit.appendChild(gitIcon);
+
+  body.appendChild(divGit);
+
+  // Evento de enlace GIT
+  gitIcon.addEventListener("click", function () {
+    window.location.href = "https://github.com/Luis0sorio/Pokedex-Pokemon";
+  });
+}
+enlaceGit(body); //llamo a la funcion

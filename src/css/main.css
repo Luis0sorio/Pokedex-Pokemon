@@ -1,25 +1,45 @@
 
-  body {
-    background-attachment: fixed;
-    background-image: url("../img/icons/juego.png");
-    background-color: #364F59;
-    background-repeat: repeat;
-    background-size: 40%;
-    background-position: center;
-    font-family: 'PokemonGB', sans-serif;
-  } 
+body {
+  background-attachment: fixed;
+  background-image: url("../img/icons/juego.png");
+  /* background-color: #364F59; */
+  background-color: #64757c; 
+  background-repeat: repeat;
+  background-size: 40%;
+  background-position: center;
+  font-family: 'PokemonGB', sans-serif;
+} 
 
   #screen-info {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
     position: fixed;
     top: 10px;
     left: 10px;
     color: white;
     padding: 10px;
     font-size: 12px;
-
   }
-
+  .div-git {
+    position: absolute; 
+    top: 10px;          
+    right: 10px;        
+    display: flex;      
+    align-items: center;
+    gap: 8px;           
+  }
+  
+  .span-git {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;    
+    color: white;        
+  }
+  
+  #gitIcon {
+    width: 20px;       
+    height: 20px;    
+    cursor: pointer;      
+  }
   main {
     padding: 2rem;
     display: flex; 
@@ -29,61 +49,117 @@
     background-size: cover;
     background-position: center;
   }
+  .carta {
+    width: 200px;
+    height: 275px;
+    perspective: 1000px;
+    margin: 10px;
+    display: inline-block;
 
-  .card {
-    margin: 18px;
-    width: 225px;
-    height: 225px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    flex-direction: column;
-    box-shadow: 15px 15px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    position: relative;
-    color: black;
-    font-size: 15px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: rgba(228, 224, 224, 0.8);
   }
-  
-  .card::before {
-    content: ""; position: absolute;
-    top: 0;
-    left: 0;
+  .carta > div {
     width: 100%;
     height: 100%;
-    background-image: url("../img/icons/pball.webp");
-    background-repeat: no-repeat;
-    background-size: 370px;
-    background-position: center;
-    opacity: 1;
-    z-index: -1;
-    border-radius: inherit;
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease; 
+  }
+  .carta-inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+
+  .anverso, .reverso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    border-radius: 20px;
+  }
+
+  .anverso {
+    background-image: 
+      url("../img/icons/pokemon_2023.png"), /* Imagen superpuesta (arriba) */
+      url("../img/icons/pokeball_cardjpg.jpg"); /* Imagen de fondo (abajo) */
+    background-size: 120px, cover; 
+    background-position: center top 5px, center; 
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border: 10px solid #F2CB05; #3658BF;
+  }
+  
+  .reverso {
+    background-image: 
+    url("../img/icons/play__pokemon.png"),
+    url("../img/icons/vigor.png");
+    /* url("../img/icons/path_of_solitude.png"); */
+    background-color: #F2CB05;
+    background-size: 135px, 100px, 155px;
+    background-position: center top -35px, center bottom -8px, center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border: 10px solid #3658BF; #3F61A6;
+  }
+
+  .carta:hover .carta-inner {
+    transform: rotateY(180deg);
+  }
+
+  .carta.girar .anverso {
+    transform: rotateY(180deg); /* el anverso está oculto cuando se gira la carta */
+  }
+  
+  .carta.girar .reverso {
+    transform: rotateY(0deg); /* el reverso es visible cuando está girado */
   }
   
   .contenedor {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 900px;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   #papelera button {
+    padding: 4px;
+    margin: 5px;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
   #papelera button i {
-    font-size: 18px; 
-    color: darkred;
+    background-color: ;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 22px; 
+    color: rgb(3, 127, 236);
   }
   #papelera button:hover i {
-    color: crimson;
+    color: rgb(8, 189, 213);
   }
   #numero{
     text-align: center;
@@ -98,6 +174,37 @@
   }
 
   .imagenes img {
-    height: 55px;
-    width: 55px;
+    height: 65px;
+    width: 65px;
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 9px;
+    /* color: #54636a; */
+    color:black;
+    /* text-shadow: 1px 1px black; */
+  }
+  .stats .stat {
+    margin-bottom: 5px;
+  }
+  #nombre {
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+
+  .tipo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tipo-img {
+    width: 30px;
+    height: auto; 
+    margin: 5px; 
   }
