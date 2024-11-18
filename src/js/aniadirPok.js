@@ -1,10 +1,28 @@
     let body= document.body;//hago el 
     //div para el formulario
     let divFormulario=document.createElement('div');
+    divFormulario.setAttribute("id","divFormulario");
+
+
+    let main = document.querySelector("main");
+
+    
+
+    //acceder al header
+    const header = document.querySelector("header");
+    header.setAttribute("id","header");
+
 
     //titulo 
-    let titulo=document.createElement('h1');
-    titulo.textContent="Escribe los datos para añadir el POKEMON";
+    let titulo = document.createElement('h1');
+    titulo.textContent="Crear Pokemon";
+
+    //div titulo
+    const divTitulo = document.createElement("div");
+    divTitulo.setAttribute("id","divTitulo");
+
+
+
 
     //creamos el formulario 
     let form=document.createElement('form');
@@ -12,9 +30,10 @@
     form.action="";
     form.id="formulario";
 
-    //creamos los campos pra los datos
+    //creamos los campos para los datos
     //nombre-pokemon
     let divInputNombre=document.createElement('div');
+    divInputNombre.setAttribute("id","divInputNombre");
     let inputNombre= document.createElement('input');
     inputNombre.type="text";
     inputNombre.id="nombre";
@@ -24,6 +43,7 @@
 
     //tipo-pokemon
     let divInputTipo=document.createElement('div');
+    divInputTipo.setAttribute("id","divInputTipo");
     let inputTipo= document.createElement('input');
     inputTipo.type="text";
     inputTipo.id="tipo";
@@ -33,7 +53,9 @@
 
     //boton enviar
     let div_bton=document.createElement('div');
+    div_bton.setAttribute("id","div_bton");
     let button=document.createElement('input');
+    button.id = "btn_env";
     button.type="submit";
     button.value="Enviar";
     div_bton.appendChild(button);
@@ -54,6 +76,7 @@
 
     //boton de volver atrás
     let div_btonAtras=document.createElement('div');
+    div_btonAtras.setAttribute("id","div_btonAtras");
     let atras=document.createElement('input');
     atras.type="button";
     atras.id="BotonAtras";
@@ -62,7 +85,7 @@
     //evento para volver atrás
     atras.addEventListener("click",function(event) { 
         //añadir el contador..
-        history.go(-2); //volver atrás
+        history.go(-2); //volver atrás 
     });
 
     //aqui añadimos las cosas
@@ -78,9 +101,17 @@
     form.appendChild(button);
     //añadimos el formulario al div donde va tdo
     divFormulario.appendChild(form);
-    //añadimos el titulo y el div al body 
-    body.appendChild(titulo);
-    body.appendChild(divFormulario);
+    
+    //hacemos que el h1 sea hijo del divTitulo
+    divTitulo.appendChild(titulo);
+    //hacemos que el divTitulo sea hijo del header
+    header.appendChild(divTitulo);
+
+//añadimos el titulo y el div al body 
+//    body.appendChild(titulo);
+
+    main.appendChild(divFormulario);
+  //  body.appendChild(divFormulario);
     body.appendChild(div_btonAtras);
 
     //hasta aqui -->creacion de formulario
@@ -113,3 +144,16 @@
     }
     aniadirP();
     //aqui n me funciona bien la creacion de la carta
+
+
+//accedo al head
+const head = document.querySelector("head");    
+
+//crear link para los estilos : style.css
+
+const linkStyle = document.createElement("link");
+linkStyle.setAttribute("rel","stylesheet");
+linkStyle.setAttribute("href","../css/style2.css");
+
+//hago que los estilos sea hijo del head 
+head.appendChild(linkStyle);
