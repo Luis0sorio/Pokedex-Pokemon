@@ -1,6 +1,7 @@
 let pokemitos = Array.from(pokemon); //copia del objeto original
+
 let objetoPokemons = localStorage.getItem("pokemitos");
-if (objetoPokemons == null) {
+if (objetoPokemons === null) {
   localStorage.setItem("pokemitos", JSON.stringify(pokemitos));
 }
 

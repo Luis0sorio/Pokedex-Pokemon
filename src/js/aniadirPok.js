@@ -84,8 +84,7 @@
     div_btonAtras.appendChild(atras);
     //evento para volver atrás
     atras.addEventListener("click",function(event) { 
-        //añadir el contador..
-        history.go(-2); //volver atrás 
+        window.location.href="../../index.html";
     });
 
     //aqui añadimos las cosas
