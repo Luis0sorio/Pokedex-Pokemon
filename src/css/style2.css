@@ -12,6 +12,7 @@ h1 {
     width: 150px;
     height: 300px;
     border-radius: 5px;
+    background-color: aliceblue;
 }
 
 #btn_env {
@@ -22,4 +23,7 @@ h1 {
 p {
     font-family: 'Courier New', Courier, monospace;
     font-style: oblique;
+}
+body {
+    background-color: #64757c;
 }
