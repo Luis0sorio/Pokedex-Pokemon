@@ -47,13 +47,19 @@ function CreacionCartas(main, contenedor) {
     //contenedor del anverso (carta)
     let anverso = document.createElement("div");
     anverso.setAttribute("class", "anverso"); //clase del contenedor
+    
     //contenedor de la imagen en el anverso
     let imgDiv = document.createElement("div");
     imgDiv.setAttribute("class", "imagenes"); //clase del div que soporta es sprite
-    let img = document.createElement("img");
-    img.src = "./src/img/pokemon/" + id + ".png";
-    imgDiv.appendChild(img);
 
+    let img = document.createElement("img");
+    if (pk[key].nuevo) {//si existe nuevo le doy otra foto como valor
+      img.src="./src/img/pokemon/imgPokemonnuevo.png";
+      imgDiv.appendChild(img);
+    }else{
+      img.src = "./src/img/pokemon/" + id + ".png";
+      imgDiv.appendChild(img);
+    }
     //informacion del pokemon (anverso)
     let infoDiv = document.createElement("div");
     infoDiv.id = "info";
