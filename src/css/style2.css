@@ -7,38 +7,96 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #CBAACB; */
+    background-image: url(../img/icons/pikapika.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position-x: 10px; */
+    /* background-size: 1550px 670px; */
+   
+}
+
+#header {
+    padding: 80px  0px 0px 0px;
 }
 
 h1 {
+    
+    background-color: transparent;
     font-family: "PokemonGB";
+    text-shadow: 2px 2px white;
+    text-transform: uppercase;
     text-align: center;
+    font-size: 18px;
+    border: 0px solid black;
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
 }
 
 #divFormulario {
-    border: solid 1px black;
+    border: inset 1px black;
     margin: auto;
+    margin-top: 8px;
+    margin-bottom: 10px;
     padding: 50px;
     display: flex;
     justify-content: center;
     width: 150px;
     height: 300px;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: aliceblue;
+    background-image: url(../img/icons/fondo2.jpg);
+    background-size: 100%;
+    background-position-y: -8px;
+    
 }
 
+
+
 #btn_env {
-    margin-left: 50px;
-    margin-top: 15px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color:cornflowerblue;
+    color: white;
+    font-weight: bold;
+}
+
+#BotonAtras{
+    margin-left: 40px;
+    background-color:cornflowerblue;
+    color: white;
+    font-weight: bold;
 }
 
 p {
     font-family: "PokemonGB";
-    font-style: oblique;
+    text-transform: uppercase;
+    font-size: 15px;
 }
 
-footer {
+
+
+/* footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    }
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    } */
+
+
+input {
+    border-radius: 8px;
+    border: none;
+    padding: 8px;
+    background-color: aliceblue;
+}
+

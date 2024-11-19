@@ -15,7 +15,7 @@
 
     //titulo 
     let titulo = document.createElement('h1');
-    titulo.textContent="Crear Pokemon";
+    titulo.textContent="Crear Pokémon";
 
     //div titulo
     const divTitulo = document.createElement("div");
@@ -38,6 +38,7 @@
     inputNombre.type="text";
     inputNombre.id="nombre";
     inputNombre.name="nombre";
+    inputNombre.placeholder = "Nombre del pokémon";
     inputNombre.required=true;//campo obligatorio
     divInputNombre.appendChild(inputNombre);
 
@@ -48,6 +49,7 @@
     inputTipo.type="text";
     inputTipo.id="tipo";
     inputTipo.name="tipo";
+    inputTipo.placeholder = "Tipo del Pokémon";
     inputTipo.required=true;//campo obligatorio
     divInputTipo.appendChild(inputTipo);
 
@@ -57,7 +59,7 @@
     let button=document.createElement('input');
     button.id = "btn_env";
     button.type="submit";
-    button.value="Enviar";
+    button.value="Crear Pokémon";
     div_bton.appendChild(button);
 
     //let br1=document.createElement('br');
@@ -75,13 +77,13 @@
     div_tipo.appendChild(tipo);
 
     //boton de volver atrás
-    let div_btonAtras=document.createElement('div');
-    div_btonAtras.setAttribute("id","div_btonAtras");
+    //let div_btonAtras=document.createElement('div');
+    //div_btonAtras.setAttribute("id","div_btonAtras");
     let atras=document.createElement('input');
     atras.type="button";
     atras.id="BotonAtras";
     atras.value="Volver Atrás";
-    div_btonAtras.appendChild(atras);
+   // div_btonAtras.appendChild(atras);
     //evento para volver atrás
     atras.addEventListener("click",function(event) { 
         window.location.href="../../index.html";
@@ -111,7 +113,7 @@
 
     main.appendChild(divFormulario);
   //  body.appendChild(divFormulario);
-    body.appendChild(div_btonAtras);
+    form.appendChild(atras);
 
     //hasta aqui -->creacion de formulario
     //gestion de los datos, al enviar el formulario
