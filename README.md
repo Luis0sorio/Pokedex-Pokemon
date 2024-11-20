@@ -1,8 +1,8 @@
-# Los primeros commits de Michael no aparecen por que estaba usando la cuenta del portatil sin vincularla a su correo electronico 
-# los problemas al hacer pull y push han llegado a borrar commit que no corresponde 
-# el historial de commits de los colaboradores no refleja el original de commits.
+ Los primeros commits de Michael no aparecen por que estaba usando la cuenta del portatil sin vincularla a su correo electronico 
+ los problemas al hacer pull y push han llegado a borrar commit que no corresponde 
+ el historial de commits de los colaboradores no refleja el original de commits.
 
-# Pokedex-Pokemon
+Pokedex-Pokemon
 
 El objetivo es crear una versión simplificada de una Pokedex utilizando JavaScript para gestionar el DOM, BOM, trabajar con eventos y otras herramientas.
 
